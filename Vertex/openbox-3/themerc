@@ -1,0 +1,121 @@
+
+# Vertex-Maia Style Theme for Openbox
+# Edited for my Manjaro Linux box by Takács Rob 2016.09.11.
+
+# Geometry
+border.width: 1
+menu.border.width: 1
+menu.separator.width: 1
+menu.separator.padding.width: 10
+menu.separator.padding.height: 5
+osd.border.width: 1
+window.client.padding.width: 0
+window.client.padding.height: 0
+window.handle.width: 0
+padding.width:  4
+padding.height: 2
+menu.overlap.x: -10
+menu.overlap.y: 0
+
+# Border colors
+window.active.border.color:		#454649
+window.inactive.border.color:	#454649
+window.active.client.color:		#454649
+window.inactive.client.color:	#454649
+menu.border.color:				#AFAFAD
+osd.border.color:				#454649
+
+# Titlebar colors
+window.active.label.text.color: 	#F3F5F3
+window.inactive.label.text.color:	#AFAFB1
+
+window.active.title.bg.color: 		#454649
+window.inactive.title.bg.color:		#454649
+
+window.active.button.unpressed.image.color:				#F3F5F3
+window.active.button.pressed.image.color:				#F3F5F3
+window.active.button.disabled.image.color:				#F3F5F3
+window.active.button.hover.image.color:					#F3F5F3
+#window.active.button.toggled.unpressed.image.color:
+#window.active.button.toggled.pressed.image.color:
+window.active.button.toggled.hover.image.color:			#F3F5F3
+#window.active.button.toggled.image.color:
+
+window.inactive.button.unpressed.image.color:			#AFAFB1
+window.inactive.button.pressed.image.color:				#AFAFB1
+window.inactive.button.disabled.image.color:			#AFAFB1
+window.inactive.button.hover.image.color:				#AFAFB1
+#window.inactive.button.toggled.unpressed.image.color:
+#window.inactive.button.toggled.pressed.image.color:
+window.inactive.button.toggled.hover.image.color:		#AFAFB1
+#window.inactive.button.toggled.image.color:
+
+window.active.button.unpressed.bg.color:		#454649
+window.active.button.pressed.bg.color:			#454649
+window.active.button.disabled.bg.color:			#454649
+window.active.button.hover.bg.color:			#454649
+window.active.button.toggled.hover.bg.color:	#454649
+
+window.inactive.button.unpressed.bg.color:		#454649
+window.inactive.button.pressed.bg.color:		#454649
+window.inactive.button.disabled.bg.color:		#454649
+window.inactive.button.hover.bg.color:			#454649
+window.inactive.button.toggled.hover.bg.color:	#454649
+
+# Active window textures
+window.active.title.bg:		Solid Flat
+window.active.label.bg:		Parentrelative
+
+# Inactive window textures
+window.inactive.title.bg:	Solid Flat
+window.inactive.label.bg:	Parentrelative
+
+# Active window button textures
+window.active.button.unpressed.bg:			Solid Flat
+window.active.button.pressed.bg:			Solid Flat
+window.active.button.hover.bg:				Solid Flat
+window.active.button.disabled.bg:			Solid Flat
+window.active.button.toggled.hover.bg:		Solid Flat
+
+# Inactive window button textures
+window.inactive.button.unpressed.bg:		Solid Flat
+window.inactive.button.pressed.bg:			Solid Flat
+window.inactive.button.hover.bg:			Solid Flat
+window.inactive.button.disabled.bg:			Solid Flat
+window.inactive.button.toggled.hover.bg:	Solid Flat
+
+# Menu colors
+menu.title.text.color:					#3C3E3C
+menu.items.text.color:					#3C3E3C
+menu.items.disabled.text.color:			#ABADAB
+menu.items.active.text.color:			#F9FAF9
+menu.items.active.disabled.text.color:	#ABADAB
+menu.separator.color:					#ABADAB
+
+menu.title.bg.color:					#F5F5F7
+menu.items.bg.color:            		#F5F5F7
+menu.items.active.bg.color:				#6599FC
+
+# Menu textures
+menu.items.bg:			Solid Flat
+menu.items.active.bg:	Solid Flat
+menu.title.bg:			Solid Flat
+
+# OSD textures
+osd.hilight.bg:			Solid Flat
+
+# OSD colors
+osd.label.text.color: #F5F5F7
+osd.hilight.bg.color: #2f2f2f
+#osd.unhilight.bg.color: 
+
+# Text justification
+window.label.text.justify:	Center
+menu.title.text.justify:	Center
+
+# Text shadows
+window.active.label.text.font:		shadow=y
+window.inactive.label.text.font:	shadow=y
+menu.items.font:					shadow=n
+menu.title.text.font:				shadow=n
+osd.label.text.font:				shadow=n
