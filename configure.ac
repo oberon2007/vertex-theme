@@ -1,6 +1,6 @@
 AC_INIT(
     [vertex-theme],
-    [20170128],
+    [20200130],
     [https://github.com/horst3180/Vertex-theme/issues],
     [vertex-theme],
     [https://github.com/horst3180/Vertex-theme],
@@ -21,8 +21,10 @@ VERTEX_ENABLE([LIGHT],       [light],       [Vertex Light], [disable])
 VERTEX_ENABLE([METACITY],    [metacity],    [Metacity],     [disable])
 VERTEX_ENABLE([UNITY],       [unity],       [Unity],        [disable])
 VERTEX_ENABLE([XFWM],        [xfwm],        [XFWM],         [disable])
+VERTEX_ENABLE([PLANK],       [plank],       [Plank theme],  [disable])
 
-VERTEX_GNOME
+AS_IF([test "x$ENABLE_GTK3" != xno], [VERTEX_GTK3])
+AS_IF([test "x$ENABLE_GNOME_SHELL" != xno], [VERTEX_GNOME_SHELL])
 
 AC_CONFIG_FILES([
     common/Makefile

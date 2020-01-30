@@ -42,7 +42,7 @@
 	<distance name="right_width" value="0" />
 	<distance name="left_titlebar_edge" value="1"/>
 	<distance name="right_titlebar_edge" value="1"/>
-	<distance name="title_vertical_pad" value="5"/> <!-- 
+	<distance name="title_vertical_pad" value="5"/> <!--
 							This needs to be 1 less then the
 							title_vertical_pad on normal state
 							or you'll have bigger buttons		-->
@@ -88,7 +88,7 @@
 	<border name="button_border" left="3" right="3" top="0" bottom="0"/>
 </frame_geometry>
 
-<frame_geometry name="modal" title_scale="small" hide_buttons="true" rounded_top_left="false" rounded_top_right="false" parent="small">
+<frame_geometry name="modal" title_scale="small" hide_buttons="false" rounded_top_left="false" rounded_top_right="false" parent="small">
 	<distance name="title_vertical_pad" value="5"/>
 </frame_geometry>
 

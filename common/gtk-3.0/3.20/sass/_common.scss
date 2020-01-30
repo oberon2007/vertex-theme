@@ -89,8 +89,8 @@ iconview { @extend .view; }
 
 rubberband,
 .rubberband {
-  border: 1px solid darken($selected_bg_color, 10%); 
-  background-color: transparentize(darken($selected_bg_color, 10%), 0.8); 
+  border: 1px solid darken($selected_bg_color, 10%);
+  background-color: transparentize(darken($selected_bg_color, 10%), 0.8);
 }
 
 flowbox {
@@ -148,7 +148,7 @@ assistant {
   .sidebar label.highlight {
     background-color: $selected_bg_color;
     color: $selected_fg_color;
-    text-shadow: 0 -1px $dark_text_icon_shadow; 
+    text-shadow: 0 -1px $dark_text_icon_shadow;
     -gtk-icon-shadow: none;
   }
 }
@@ -280,7 +280,7 @@ entry, %entry {
 // Extends for linked entries
 %entry_linked_middle {
   @include linked(entry, normal, middle);
-  &:focus { @include linked(entry, focused, middle) }  
+  &:focus { @include linked(entry, focused, middle) }
 }
 
 %entry_linked {
@@ -351,7 +351,7 @@ button, %button {
 
   separator { margin: 4px 1px; }
 
-  &.flat { 
+  &.flat {
     @include button(undecorated);
     text-shadow: 0 #{$shadow_pos}px $light_text_icon_shadow;
     -gtk-icon-shadow: 0 #{$shadow_pos}px $light_text_icon_shadow;
@@ -634,7 +634,7 @@ toolbar.inline-toolbar toolbutton {
 @each $b_type in (suggested, destructive) {
   %#{$b_type}_linked_middle {
     @include linked(button, normal, middle, $action_type:$b_type);
-    &:active, &:checked { @include linked(button, active, middle, $action_type:$b_type); }  
+    &:active, &:checked { @include linked(button, active, middle, $action_type:$b_type); }
   }
 
   %#{$b_type}_linked {
@@ -986,7 +986,7 @@ actionbar {
 
 searchbar,
 .location-bar {
-  padding: 3px; 
+  padding: 3px;
   border-width: 0 0 1px;
   border-style: solid;
   border-color: $borders_color;
@@ -1018,7 +1018,7 @@ headerbar,
     font-weight: bold;
     padding: 0px 12px;
     text-shadow: 0 #{$shadow_pos * $darker_shadow_pos}px $wm_title_shadow;
-  
+
     &:backdrop {
       color: transparentize($wm_title, 0.5);
       text-shadow: 0 #{$shadow_pos * $darker_shadow_pos}px transparentize($wm_title_shadow, 0.4);
@@ -1066,7 +1066,7 @@ headerbar,
       color: $selected_fg_color;
       text-shadow: 0 -1px $selection_button_text_shadow;
      }
-    .subtitle { 
+    .subtitle {
       color: $selected_fg_color;
       @extend .dim-label;
     }
@@ -1189,7 +1189,7 @@ headerbar {
 // Entries
   entry {
     @include entry(normal, $dark:'true');
-  
+
     image {
       &, &:hover ,&:active { color: inherit; }
     }
@@ -1231,7 +1231,7 @@ headerbar {
   button {
     @include button(normal, $dark:'true');
 
-    &.flat { 
+    &.flat {
       @include button(undecorated);
       text-shadow: 0 -1px nth($_light_text_icon_shadow, 2);
       -gtk-icon-shadow: 0 -1px nth($_light_text_icon_shadow, 2);
@@ -1424,7 +1424,7 @@ headerbar {
 // Extends for dark linked entries
 %header_entry_linked_middle {
   @include linked(entry, normal, middle, $dark:'true');
-  &:focus { @include linked(entry, focused, middle, $dark:'true') }  
+  &:focus { @include linked(entry, focused, middle, $dark:'true') }
 }
 
 %header_entry_linked {
@@ -1447,7 +1447,7 @@ headerbar {
 // Extends for dark linked buttons
 %header_linked_middle {
   @include linked(button, normal, middle, $dark:'true');
-  &:active, &:checked { @include linked(button, active, middle, $dark:'true') }  
+  &:active, &:checked { @include linked(button, active, middle, $dark:'true') }
 }
 
 %header_linked {
@@ -1471,7 +1471,7 @@ headerbar {
 @each $b_type in (suggested, destructive) {
   %header_#{$b_type}_linked_middle {
     @include linked(button, normal, middle, $action_type:$b_type, $dark:'true');
-    &:active, &:checked { @include linked(button, active, middle, $action_type:$b_type, $dark:'true'); }  
+    &:active, &:checked { @include linked(button, active, middle, $action_type:$b_type, $dark:'true'); }
   }
 
   %header_#{$b_type}_linked {
@@ -1895,7 +1895,7 @@ notebook {
       border-radius: 2px 2px 0 0;
     }
     &.left > tabs > tab {
-      border-width: 1px 1px 1px 0; 
+      border-width: 1px 1px 1px 0;
       border-radius: 0;
     }
     &.right > tabs > tab {
@@ -2018,7 +2018,7 @@ notebook {
         -gtk-icon-shadow: none;
       }
     }
-    &:hover button.flat:not(:hover):not(:active), 
+    &:hover button.flat:not(:hover):not(:active),
     &:checked button.flat:not(:hover):not(:active) {
       color: $fg_color;
     }
@@ -2042,8 +2042,8 @@ scrollbar {
   }
 
   &.horizontal button {
-    &.down { -gtk-icon-source: -gtk-icontheme('pan-right-symbolic'); }
-    &.up { -gtk-icon-source: -gtk-icontheme('pan-left-symbolic'); }
+    &.down { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic'); }
+    &.up { -gtk-icon-source: -gtk-icontheme('pan-start-symbolic'); }
   }
 
   // Overlay Scrollbars
@@ -2461,7 +2461,7 @@ scale {
     #{$i}scale slider#{$k} {
       background-image: -gtk-scaled(url("assets/slider#{$l}#{$j}#{$asset_suffix}.png"),url("assets/slider#{$l}#{$j}#{$asset_suffix}@2.png"));
     }
-    
+
     // use dark sliders for osd
     // no list-row special case needed
     @if $i=='' {
@@ -2557,12 +2557,12 @@ progressbar {
 levelbar {
 
   block {
-    min-width: 32px;
+    min-width: 4px;
     min-height: 4px;
   }
   &.vertical block {
     min-width: 4px;
-    min-height: 32px;
+    min-height: 4px;
   }
 
   trough { padding: 2px; }
@@ -2728,7 +2728,7 @@ row {
       box-shadow: inset 0 2px 2px -2px transparentize(black,0.8);
     }
     &:selected {
-      &:active { 
+      &:active {
         color: $selected_fg_color;
         box-shadow: inset 0 2px 3px -1px transparentize(black,0.5);
       }
@@ -3052,11 +3052,14 @@ paned {
 infobar {
   border: none;
 
+  &.info { background-color: $selected_bg_color; }
+  &.question { background-color: $suggested_color_a; }
+  &.warning { background-color: $warning_color; }
+  &.error { background-color: $error_color; }
   &.info,
   &.question,
   &.warning,
   &.error {
-    background-color: $infobar_bg_color;
     color: $infobar_fg_color;
     text-shadow: 0 #{$shadow_pos}px $infobar_text_shadow;
     border-color: mix($infobar_bg_color, black, 85%);

@@ -30,7 +30,7 @@ endif # ENABLE_CINNAMON
 if ENABLE_GNOME_SHELL
 	$(MKDIR_P) $(ithemedir)/gnome-shell
 
-	cd $(srcdir)/gnome-shell/$(GNOME_VERSION) && cp -R \
+	cd $(srcdir)/gnome-shell/$(GNOME_SHELL_VERSION) && cp -RL \
 		assets \
 		gnome-shell.css \
 		$(ithemedir)/gnome-shell
@@ -53,7 +53,7 @@ endif # ENABLE_GTK2
 
 
 if ENABLE_GTK3
-	cp -RH $(srcdir)/gtk-3.0/$(GNOME_VERSION) $(ithemedir)/gtk-3.0
+	cp -RH $(srcdir)/gtk-3.0/$(GTK3_VERSION) $(ithemedir)/gtk-3.0
 
 	cd $(ithemedir)/gtk-3.0 && rm -rf \
 		gtk-light.css \
@@ -68,7 +68,7 @@ if ENABLE_GTK3
 		package.json
 
 if ENABLE_DARK
-	cp -RH $(srcdir)/gtk-3.0/$(GNOME_VERSION) $(ithemedarkdir)/gtk-3.0
+	cp -RH $(srcdir)/gtk-3.0/$(GTK3_VERSION) $(ithemedarkdir)/gtk-3.0
 
 	cd $(ithemedarkdir)/gtk-3.0 && rm -rf \
 		gtk.css \
@@ -89,7 +89,7 @@ if ENABLE_DARK
 endif # ENABLE_DARK
 
 if ENABLE_LIGHT
-	cp -RH $(srcdir)/gtk-3.0/$(GNOME_VERSION) $(ithemelightdir)/gtk-3.0
+	cp -RH $(srcdir)/gtk-3.0/$(GTK3_VERSION) $(ithemelightdir)/gtk-3.0
 
 	cd $(ithemelightdir)/gtk-3.0 && rm -rf \
 		thumbnail-dark.png \

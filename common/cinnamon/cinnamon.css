@@ -1,6 +1,6 @@
 /* ###################################################################
  * Section common with Gnome Shell
- * ... contains a few cinnamon specific styles (rare occurences) 
+ * ... contains a few cinnamon specific styles (rare occurences)
  * ###################################################################*/
 stage {
   font-family: sans, Sans-Serif;
@@ -79,7 +79,7 @@ StScrollBar StButton#vhandle:active {
 }
 
 /* ===================================================================
- * Shared button properties 
+ * Shared button properties
  * ===================================================================*/
 .notification-button, .notification-icon-button,
 .modal-dialog-button {
@@ -116,7 +116,7 @@ StScrollBar StButton#vhandle:active {
 }
 
 /* ===================================================================
- * PopupMenu (popupMenu.js) 
+ * PopupMenu (popupMenu.js)
  * ===================================================================*/
 .popup-menu-boxpointer {
   -arrow-border-radius: 3px;
@@ -380,7 +380,7 @@ StScrollBar StButton#vhandle:active {
 .panel-button:active,
 .panel-button:overview,
 .panel-button:focus {
-	
+
 }
 
 .panel-button:active > .system-status-icon,
@@ -402,7 +402,7 @@ StScrollBar StButton#vhandle:active {
 }
 
 /* ===================================================================
- * Overview 
+ * Overview
  * ===================================================================*/
 #overview {
 	spacing: 12px;
@@ -579,7 +579,7 @@ StScrollBar StButton#vhandle:active {
 }
 
 /* ===================================================================
- * Date applet 
+ * Date applet
  * ===================================================================*/
 .calendar {
   padding: .4em 1.75em;
@@ -931,7 +931,7 @@ StScrollBar StButton#vhandle:active {
   spacing: 5px;
 }
 
-.run-dialog-completion-box { 
+.run-dialog-completion-box {
   padding-left: 15px;
   font-size: 10px;
 }
@@ -1128,7 +1128,7 @@ StScrollBar StButton#vhandle:active {
 }
 
 /* ###################################################################
- * Cinnamon Specific Section 
+ * Cinnamon Specific Section
  * ###################################################################*/
 /* ===================================================================
  * Menu (menu.js)
@@ -1136,7 +1136,6 @@ StScrollBar StButton#vhandle:active {
 /* Main menu title */
 
 .menu-favorites-box {
-  margin: auto;
   padding: 10px;
   border-image: url("entry/entry-border.svg") 3;
   transition-duration: 300;
@@ -1155,7 +1154,6 @@ StScrollBar StButton#vhandle:active {
 }
 
 .menu-places-box {
-  margin: auto;
   padding: 10px;
   border: 0px solid red;
 }
@@ -1211,11 +1209,11 @@ StScrollBar StButton#vhandle:active {
   font-weight: bold;
 }
 
-.menu-application-button-label:ltr { 
+.menu-application-button-label:ltr {
   padding-left: 5px;
 }
 
-.menu-application-button-label:rtl { 
+.menu-application-button-label:rtl {
   padding-right: 5px;
 }
 
@@ -1397,7 +1395,7 @@ StScrollBar StButton#vhandle:active {
   border-image: url("panel/panel-button-border-active.svg") 3;
 }
 
-.window-list-item-box:hover	{ 
+.window-list-item-box:hover	{
   border-image: url("panel/panel-button-border-hover.svg") 3;
 }
 
@@ -1440,7 +1438,7 @@ StScrollBar StButton#vhandle:active {
   icon-size: 1.4em;
 }
 
-.sound-track-infos {	
+.sound-track-infos {
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 5px;
@@ -1461,9 +1459,9 @@ StScrollBar StButton#vhandle:active {
   padding-right: 5px;
 }
 
-.sound-track-box {	
+.sound-track-box {
   padding-left: 15px;
-  padding-right: 15px;	
+  padding-right: 15px;
   max-width: 220px;
 }
 
@@ -1674,7 +1672,7 @@ StScrollBar StButton#vhandle:active {
 }
 
 /* ===================================================================
- * Applets (applet.js) 
+ * Applets (applet.js)
  * ===================================================================*/
 .applet-separator {
   padding: 1px 4px;
@@ -1707,9 +1705,9 @@ StScrollBar StButton#vhandle:active {
   border-image: url("panel/panel-button-border-vertical-hover.svg") 2 6 10 0;
 }
 
-.applet-label {	
+.applet-label {
   font-weight: bold;
-  color: white;		
+  color: white;
 }
 
 .applet-label:hover,
@@ -1732,7 +1730,7 @@ StScrollBar StButton#vhandle:active {
 /* ===================================================================
  * User Applet
  * ===================================================================*/
- 
+
 .user-box {
   padding: .4em 1.75em;
   spacing: 1em;
@@ -1755,10 +1753,10 @@ StScrollBar StButton#vhandle:active {
 }
 
 /* ===================================================================
- * Desklets (desklet.js) 
+ * Desklets (desklet.js)
  * ===================================================================*/
-.desklet {        
-  color: #fff;    
+.desklet {
+  color: #fff;
   /*border-image: url("menu/menu.svg") 10 10 35 14;
   padding: 12px;
   padding-bottom: 16px;*/
@@ -1782,7 +1780,7 @@ StScrollBar StButton#vhandle:active {
   padding-bottom: 17px;
 }
 
-.desklet-header { 
+.desklet-header {
   border-image: url("misc/desklet-header.svg") 10 10 22 2;
   color: #fff;
   font-size: 1em;
@@ -1790,13 +1788,13 @@ StScrollBar StButton#vhandle:active {
   padding-bottom: 6px;
 }
 
-.desklet-drag-placeholder { 
+.desklet-drag-placeholder {
   border: 2px solid #4080FB;
   background-color: rgba(64,128,251, 0.3);
 }
 
 /* ===================================================================
- * Clock Desklet (desklet.js) 
+ * Clock Desklet (desklet.js)
  * ===================================================================*/
 /*
 .clock-desklet-label {
@@ -1810,7 +1808,7 @@ StScrollBar StButton#vhandle:active {
   /*color: red;*/
   text-shadow: black 5px 5px 5px;
   font-weight: bold;
-  font-size: 48pt;	
+  font-size: 48pt;
 }
 
 /* ===================================================================
@@ -1993,7 +1991,7 @@ StScrollBar StButton#vhandle:active {
 /* ===================================================================
  * Xkcd Desklet
  * ===================================================================*/
- 
+
 .xkcd-box {
 	padding: 6px;
 	border: 0px;

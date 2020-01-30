@@ -6,8 +6,8 @@ The theme comes with three variants to choose from. The default variant with dar
 
 ### Requirements
 
-* At least Gnome/GTK 3.10. This theme works with all versions up to 3.22.
-* The `gnome-themes-standard` package
+* GNOME Shell 3.18 - 3.32, GTK 3.18 - 3.24
+* The `gnome-themes-extra` package
 * The murrine engine. This has different names depending on your distro.
   * `gtk-engine-murrine` (Arch Linux)
   * `gtk2-engines-murrine` (Debian, Ubuntu, elementary OS)
@@ -15,33 +15,17 @@ The theme comes with three variants to choose from. The default variant with dar
   * `gtk2-engine-murrine` (openSUSE)
   * `gtk-engines-murrine` (Gentoo)
 
-Main distributions that meet these requirements are
-
-* Arch Linux and Arch Linux based distros
-* Ubuntu 14.04 or newer
-* elementary OS Freya
-* Linux Mint 17.1
-* Debian 8, Testing or Unstable
-* Gentoo
-* Fedora 20 or newer
-* OpenSuse 13.1, 13.2, Leap 42.1 and Tumbleweed
-* Solus
-
-Derivatives of these distributions should work, aswell.
-
-If your distribution is not listed, please check the requirements yourself.
-
 ### Installation
 
 **Important:** Remove all older versions of the theme from your system before you proceed any further.
 
-    sudo rm -rf /usr/share/themes/{Vertex,Vertex-Dark,Vertex-Light,Vertex-Gnome-Shell,Vertex-Gnome-Shell-3.16,Vertex-Cinnamon}
-    rm -rf ~/.local/share/themes/{Vertex,Vertex-Dark,Vertex-Light,Vertex-Gnome-Shell,Vertex-Gnome-Shell-3.16,Vertex-Cinnamon}
-    rm -rf ~/.themes/{Vertex,Vertex-Dark,Vertex-Light,Vertex-Gnome-Shell,Vertex-Gnome-Shell-3.16,Vertex-Cinnamon}
+    sudo rm -rf /usr/share/themes/{Vertex,Vertex-Dark,Vertex-Light,Vertex-Gnome-Shell,Vertex-Cinnamon}
+    rm -rf ~/.local/share/themes/{Vertex,Vertex-Dark,Vertex-Light,Vertex-Gnome-Shell,Vertex-Cinnamon}
+    rm -rf ~/.themes/{Vertex,Vertex-Dark,Vertex-Light,Vertex-Gnome-Shell,Vertex-Cinnamon}
 
 **Packages**
 
-Prebuilt packages for Ubuntu, Debian, Fedora and openSUSE are available at 
+Prebuilt packages for Ubuntu, Debian, Fedora and openSUSE are available at
 
 http://software.opensuse.org/download.html?project=home%3AHorst3180&package=vertex-theme
 
@@ -53,11 +37,11 @@ https://aur.archlinux.org/packages/vertex-themes-git/
 
 **Manual Installation**
 
-To build the theme you need 
+To build the theme you need
 * `autoconf`
 * `automake`
 * `pkg-config` or `pkgconfig` if you use Fedora
-* `libgtk-3-dev` for Debian based distros or `gtk3-devel` for RPM based distros
+* `libgtk-3-dev` for Debian based distros or `gtk3-devel` for RPM based distros, for auto-detecting the GTK3 version
 * `git` if you want to clone the source directory
 
 If your distributions doesn't ship separate development packages you just need GTK 3 instead of the `-dev` packages.
@@ -85,19 +69,21 @@ or download it from https://github.com/horst3180/Vertex-theme/releases and cd in
 
 Other options to pass to autogen.sh are
 
-    --disable-cinnamon         disable Cinnamon support
-    --disable-dark             disable Vertex Dark support
-    --disable-gnome-shell      disable GNOME Shell support
-    --disable-gtk2             disable GTK2 support
-    --disable-gtk3             disable GTK3 support
-    --disable-light            disable Vertex Light support
-    --disable-metacity         disable Metacity support
-    --disable-unity            disable Unity support
-    --disable-xfwm             disable XFWM support
+    --disable-cinnamon             disable Cinnamon support
+    --disable-dark                 disable Vertex Dark support
+    --disable-gnome-shell          disable GNOME Shell support
+    --disable-gtk2                 disable GTK2 support
+    --disable-gtk3                 disable GTK3 support
+    --disable-light                disable Vertex Light support
+    --disable-metacity             disable Metacity support
+    --disable-unity                disable Unity support
+    --disable-xfwm                 disable XFWM support
+    --disable-plank                disable Plank theme support
 
-    --with-gnome=<version>     build the theme for a specific Gnome version (3.10, 3.12, 3.14, 3.16, 3.18, 3.20)
-                               Note: Normally the correct version is detected automatically and this
-                               option should not be needed.
+    --with-gnome-shell=<version>   build the gnome-shell theme for a specific version
+    --with-gtk3=<version>          build the GTK3 theme for a specific version
+                                   Note: Normally the correct version is detected automatically
+                                   and these options should not be needed.
 
 After the installation is complete you can activate the theme with `gnome-tweak-tool` or a similar program by selecting `Vertex`, `Vertex-Light` or `Vertex-Dark`.
 
@@ -123,8 +109,7 @@ Themes for the variants Vertex-Light and Vertex-Dark are in the Firefox folder, 
 
 To install the alternative metacity theme, copy the `Vertex_alt_metacity` folder to `/usr/share/themes` and select it as window theme.
 
-To install the Plank theme, copy the `extra/Vertex-Plank` folder to `~/.local/share/plank/themes` or to `/usr/share/plank/themes` for system-wide use.
-Now open the Plank preferences window by executing `plank --preferences` from a terminal and select `Vertex-Plank` as the theme.
+As of version `20200130` the plank theme will be installed along with the normal vertex gtk theme. You can disable the install by passing `disable-plank` to the autogen command. Now open the Plank preferences window by executing `plank --preferences` from a terminal and select `Gtk+` as the theme.
 
 ### Troubleshooting
 
