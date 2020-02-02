@@ -6,7 +6,7 @@ The theme comes with three variants to choose from. The default variant with dar
 
 ### Requirements
 
-* GNOME Shell 3.18 - 3.32, GTK 3.18 - 3.24
+* GNOME Shell 3.18 - 3.34, GTK 3.18 - 3.24
 * The `gnome-themes-extra` package
 * The murrine engine. This has different names depending on your distro.
   * `gtk-engine-murrine` (Arch Linux)
