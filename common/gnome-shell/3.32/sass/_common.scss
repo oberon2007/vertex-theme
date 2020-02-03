@@ -1372,7 +1372,7 @@ StScrollBar {
 
   &-header {
     font-weight: bold;
-    include fontsize($font-size * 1.2);
+    @include fontsize($font-size * 1.2);
   }
 
   &-item {

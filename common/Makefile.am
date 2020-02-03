@@ -30,6 +30,8 @@ endif # ENABLE_CINNAMON
 if ENABLE_GNOME_SHELL
 	$(MKDIR_P) $(ithemedir)/gnome-shell
 
+	$(SASSC) $(srcdir)/gnome-shell/$(GNOME_SHELL_VERSION)/sass/gnome-shell.scss $(srcdir)/gnome-shell/$(GNOME_SHELL_VERSION)/gnome-shell.css;
+
 	cd $(srcdir)/gnome-shell/$(GNOME_SHELL_VERSION) && cp -RL \
 		assets \
 		gnome-shell.css \
@@ -53,6 +55,10 @@ endif # ENABLE_GTK2
 
 
 if ENABLE_GTK3
+	$(SASSC) $(srcdir)/gtk-3.0/$(GTK3_VERSION)/sass/gtk.scss $(srcdir)/gtk-3.0/$(GTK3_VERSION)/gtk.css;
+	$(SASSC) $(srcdir)/gtk-3.0/$(GTK3_VERSION)/sass/gtk-light.scss $(srcdir)/gtk-3.0/$(GTK3_VERSION)/gtk-light.css;
+	$(SASSC) $(srcdir)/gtk-3.0/$(GTK3_VERSION)/sass/gtk-dark.scss $(srcdir)/gtk-3.0/$(GTK3_VERSION)/gtk-dark.css;
+
 	cp -RH $(srcdir)/gtk-3.0/$(GTK3_VERSION) $(ithemedir)/gtk-3.0
 
 	cd $(ithemedir)/gtk-3.0 && rm -rf \
@@ -63,7 +69,6 @@ if ENABLE_GTK3
 		sass \
 		*.sh \
 		*.txt \
-		gulpfile.js \
 		.nvmrc \
 		package.json
 
@@ -78,7 +83,6 @@ if ENABLE_DARK
 		sass \
 		*.sh \
 		*.txt \
-		gulpfile.js \
 		.nvmrc \
 		package.json
 
@@ -98,7 +102,6 @@ if ENABLE_LIGHT
 		sass \
 		*.sh \
 		*.txt \
-		gulpfile.js \
 		.nvmrc \
 		package.json
 

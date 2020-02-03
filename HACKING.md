@@ -1,18 +1,12 @@
 This theme uses libsass/gulp to process the sass/*.scss. Never edit any of the .css files manually.
 
-#### Editing the theme
+#### Editing the CSS based themes in the `common` directory
 
-* Install `nvm` (https://github.com/creationix/nvm)
+* Edit the cinnamon.css file.
 
-* Run `nvm i` from the directory containing `.nvmrc`
+* Edit the sass/*.scss files (gnome-shell or gtk-3.0).
 
-* Run `npm i` from the directory containing `gulpfile.js`. It's the same directory as the one that contains `.nvmrc` in this case.
-
-* Install `gulp` with `npm i -g gulp`
-
-* Edit the sass/*.scss files
-
-* Regenerate the .css files by executing `gulp` from the directory that contains `gulpfile.js`
+* Run `make` to generate all css files using sassc (gnome-shell or gtk-3.0).
 
 --
 

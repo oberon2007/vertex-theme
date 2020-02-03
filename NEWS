@@ -1,7 +1,6 @@
 20200130
   * [Changes ported from https://github.com/arc-design/arc-theme]
     - Remove margin:auto from cinnamon menu applet and default theme
-    - Fix mixed quote types in gulpfil
     - Remove no longer supported GTK+ versions
     - Added plank theme to makefile
     - Separate gtk3 and gnome-shell versioning
@@ -16,7 +15,7 @@
     - Shell overview caption fix
       + Separate gnome-shell 3.26 theme from 3.20
       + Remove unused CSS property from shell captions
-    - Metacity - add buttons to modal geometry & fix attached dialog titlebar.
+    - Metacity - add buttons to modal geometry
     - Harmonize font-size to 10pt overall Gnome Shell for 3.30
     - Fix horizontal stepper icons
     - Fix vertical and horizontal levelbar values
@@ -27,3 +26,6 @@
     - Switch symbolic link for 3.34 to 3.32 base
     - Infobar should respect message type closes
     - fix search results not displayed when exiting lock screen with this theme
+    - Compile with sassc
+    - Removed autogenrated css files by sassc
+    - Removed old gulp file. Now use sassc.

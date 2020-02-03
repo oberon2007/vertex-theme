@@ -26,6 +26,11 @@ VERTEX_ENABLE([PLANK],       [plank],       [Plank theme],  [disable])
 AS_IF([test "x$ENABLE_GTK3" != xno], [VERTEX_GTK3])
 AS_IF([test "x$ENABLE_GNOME_SHELL" != xno], [VERTEX_GNOME_SHELL])
 
+AS_IF([test "x$ENABLE_GTK3" != xno -o "x$ENABLE_GNOME_SHELL" != xno], [
+    AC_PATH_PROG([SASSC], [sassc])
+    AS_IF([test "x$ac_cv_path_SASSC" = x], [AC_MSG_ERROR([sassc not found])])
+])
+
 AC_CONFIG_FILES([
     common/Makefile
     extra/Makefile

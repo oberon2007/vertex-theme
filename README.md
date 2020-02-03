@@ -40,6 +40,7 @@ https://aur.archlinux.org/packages/vertex-themes-git/
 To build the theme you need
 * `autoconf`
 * `automake`
+* `sassc` for GTK 3 or GNOME Shell
 * `pkg-config` or `pkgconfig` if you use Fedora
 * `libgtk-3-dev` for Debian based distros or `gtk3-devel` for RPM based distros, for auto-detecting the GTK3 version
 * `git` if you want to clone the source directory
