@@ -68,9 +68,7 @@ if ENABLE_GTK3
 		README.md \
 		sass \
 		*.sh \
-		*.txt \
-		.nvmrc \
-		package.json
+		*.txt
 
 if ENABLE_DARK
 	cp -RH $(srcdir)/gtk-3.0/$(GTK3_VERSION) $(ithemedarkdir)/gtk-3.0
@@ -82,9 +80,7 @@ if ENABLE_DARK
 		README.md \
 		sass \
 		*.sh \
-		*.txt \
-		.nvmrc \
-		package.json
+		*.txt
 
 	cd $(ithemedarkdir)/gtk-3.0 && \
 		mv gtk-dark.css gtk.css && \
@@ -101,9 +97,7 @@ if ENABLE_LIGHT
 		README.md \
 		sass \
 		*.sh \
-		*.txt \
-		.nvmrc \
-		package.json
+		*.txt
 
 	cd $(ithemelightdir)/gtk-3.0 && \
 		mv gtk-light.css gtk.css
