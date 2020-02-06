@@ -30,8 +30,9 @@ endif # ENABLE_PLANK
 
 uninstall-local:
 
-EXTRA_DIST = $(srcdir)/Chrome \
-	     $(srcdir)/Firefox \
-	     $(srcdir)/Ubuntu-Software-Center \
-	     $(srcdir)/Vertex_alt_metacity \
-	     Vertex-Plank
+EXTRA_DIST = \
+	Chrome \
+	Firefox \
+	Ubuntu-Software-Center \
+	Vertex_alt_metacity \
+	Vertex-Plank
