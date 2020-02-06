@@ -16,7 +16,7 @@
       + Separate gnome-shell 3.26 theme from 3.20
       + Remove unused CSS property from shell captions
     - Metacity - add buttons to modal geometry
-    - Harmonize font-size to 10pt overall Gnome Shell for 3.30
+    - Harmonize font-size to 9pt overall Gnome Shell for 3.30
     - Fix horizontal stepper icons
     - Fix vertical and horizontal levelbar values
     - Add symlink for GNOME 3.32
