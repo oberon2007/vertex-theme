@@ -733,6 +733,21 @@ StScrollBar {
 }
 
 //
+// Pad OSD
+//
+.pad-osd-window {
+  padding: 32px;
+  background-color: $osd_bg_color;
+
+  .pad-osd-title-box { spacing: 12px; }
+  .pad-osd-title-menu-box { spacing: 6px; }
+}
+
+.combo-box-label {
+  width: 15em;
+}
+
+//
 // Alt Tab Switcher
 //
 .switcher-popup {
