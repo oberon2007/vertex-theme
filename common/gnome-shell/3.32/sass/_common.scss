@@ -1037,7 +1037,7 @@ StScrollBar {
 
 .datemenu-today-button,
 .world-clocks-button,
-.message-list-section-title {
+.events-section-title {
   border-radius: 4px;
   padding: .4em;
 }
@@ -1052,7 +1052,7 @@ StScrollBar {
 
 .datemenu-today-button,
 .world-clocks-button,
-.message-list-section-title {
+.events-section-title {
   padding: 7px 10px 7px 10px;
   @extend %reset_style;
 
@@ -1072,7 +1072,7 @@ StScrollBar {
 }
 
 .world-clocks-header,
-.message-list-section-title {
+.events-section-title {
   color: transparentize($fg_color, 0.6);
   font-weight: bold;
 }
@@ -1202,31 +1202,6 @@ StScrollBar {
 .message-list-section,
 .message-list-section-list {
   spacing: 0.7em;
-}
-
-.message-list-section-title-box {
-  spacing: 0.4em;
-}
-
-.message-list-section-close > StIcon {
-  icon-size: 26px;
-  border-radius: 0px;
-  color: transparent;
-  background-color: transparent;
-  background-image: url('assets/misc/message-list-close.svg');
-}
-
-.message-list-section-close:hover > StIcon,
-.message-list-section-close:focus > StIcon {
-  color: transparent;
-  background-color: transparent;
-  background-image: url('assets/misc/message-list-close-hover.svg');
-}
-
-.message-list-section-close:active > StIcon {
-  color: transparent;
-  background-color: transparent;
-  background-image: url('assets/misc/message-list-close-active.svg');
 }
 
 .message {
