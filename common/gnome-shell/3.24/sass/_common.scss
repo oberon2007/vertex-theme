@@ -1046,6 +1046,7 @@ StScrollBar {
 
 .datemenu-today-button,
 .world-clocks-button,
+.weather-button,
 .events-section-title {
   border-radius: 4px;
   padding: .4em;
@@ -1061,6 +1062,7 @@ StScrollBar {
 
 .datemenu-today-button,
 .world-clocks-button,
+.weather-button,
 .events-section-title {
   padding: 7px 10px 7px 10px;
   @extend %reset_style;
