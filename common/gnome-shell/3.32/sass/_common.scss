@@ -1090,6 +1090,7 @@ StScrollBar {
 }
 
 .world-clocks-header,
+.weather-header,
 .events-section-title {
   color: transparentize($fg_color, 0.6);
   font-weight: bold;
@@ -1097,6 +1098,10 @@ StScrollBar {
 
 .world-clocks-grid {
   spacing-rows: 0.4em;
+}
+
+.weather-box {
+  spacing: 0.4em;
 }
 
 .calendar-month-label {
