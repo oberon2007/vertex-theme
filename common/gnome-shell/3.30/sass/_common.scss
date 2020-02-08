@@ -395,26 +395,26 @@ StScrollBar {
 
 .mount-dialog {
   spacing: 24px;
-}
 
-.mount-dialog-subject {
-  padding-top: 10px;
-  padding-left: 17px;
-  padding-bottom: 6px;
-  max-width: 34em;
+  .message-dialog-title {
+    padding-top: 10px;
+    padding-left: 17px;
+    padding-bottom: 6px;
+    max-width: 34em;
 
-  &:rtl {
-    padding-left: 0px;
-    padding-right: 17px;
+    &:rtl {
+      padding-left: 0px;
+      padding-right: 17px;
+    }
   }
-}
 
-.mount-dialog-description {
-  padding-left: 17px;
-  width: 28em;
+  .message-dialog-body {
+    padding-left: 17px;
+    width: 28em;
 
-  &:rtl {
-    padding-right: 17px;
+    &:rtl {
+      padding-right: 17px;
+    }
   }
 }
 
@@ -455,16 +455,16 @@ StScrollBar {
   width: 34em;
   //border: 3px solid $_bubble_borders_color;
 
-  &-main-layout {
+  .message-dialog-main-layout {
     spacing: 24px;
     padding: 10px;
   }
 
-  &-message-layout {
+  .message-dialog-content {
     spacing: 16px;
   }
 
-  &-headline {
+  .message-dialog-title {
     @include fontsize($font-size * 1.3);
     font-weight: bold;
     color: $fg_color;
@@ -568,30 +568,6 @@ StScrollBar {
 //
 .access-dialog {
   spacing: 30px;
-
-  &-main-layout {
-    padding: 12px 20px 0;
-    spacing: 12px;
-  }
-
-  &-content {
-    max-width: 28em;
-    spacing: 20px;
-  }
-
-  &-icon {
-    min-width: 48px;
-    icon-size: 48px;
-  }
-
-  &-title {
-    font-weight: bold;
-  }
-
-  &-subtitle {
-    color: $fg_color;
-    font-weight: bold;
-  }
 }
 
 //
@@ -599,16 +575,6 @@ StScrollBar {
 //
 .geolocation-dialog {
   spacing: 30px;
-
-  &-main-layout { spacing: 12px; }
-  &-content { spacing: 20px; }
-  &-icon { icon-size: 48px; }
-  &-title { font-weight: bold; }
-
-  &-reason {
-    color: $fg_color;
-    font-weight: bold;
-  }
 }
 
 //
