@@ -603,6 +603,14 @@ StScrollBar {
 }
 
 //
+// Extension Dialog
+//
+.extension-dialog {
+  .message-dialog-main-layout { spacing: 24px; padding: 10px; }
+  .message-dialog-title { color: $fg_color; }
+}
+
+//
 // Network Agent Dialog
 //
 .network-dialog-secret-table {
