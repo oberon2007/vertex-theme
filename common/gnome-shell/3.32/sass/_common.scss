@@ -1486,12 +1486,10 @@ StScrollBar {
 
 .list-search-result-description { color: darken($osd_fg_color, 20%); }
 
+.list-search-provider-details { width: 150px; color: darken($_shell_fg_color,10%); margin-top: 0.1em; }
+
+.list-search-provider-content { spacing: 20px; }
 .search-provider-icon { padding: 15px; }
-.search-provider-icon-more {
-  width: 16px;
-  height: 16px;
-  background-image: url("assets/misc/more-results.svg");
-}
 
 //
 // Dash
