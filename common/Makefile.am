@@ -157,6 +157,22 @@ endif # ENABLE_LIGHT
 endif # ENABLE_METACITY
 
 
+if ENABLE_PLANK
+
+	$(MKDIR_P) $(ithemedir)
+	cp -R $(srcdir)/plank $(ithemedir)
+
+if ENABLE_DARK
+	$(MKDIR_P) $(ithemedarkdir)
+	cp -R $(srcdir)/plank $(ithemedarkdir)
+endif # ENABLE_DARKER
+
+if ENABLE_LIGHT
+	$(MKDIR_P) $(ithemelightdir)
+	cp -R $(srcdir)/plank $(ithemelightdir)
+endif # ENABLE_DARK
+endif # ENABLE_PLANK
+
 
 if ENABLE_UNITY
 	cp -R $(srcdir)/unity $(ithemedir)
@@ -207,6 +223,7 @@ EXTRA_DIST = \
 	gtk-3.0 \
 	metacity-1 \
 	unity \
+	plank \
 	xfwm4 \
 	xfwm4-light \
 	index.theme \

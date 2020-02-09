@@ -991,6 +991,12 @@ StScrollBar {
   .aggregate-menu {
     width: 23em;
     .popup-menu-icon { padding: 0 4px; }
+    .popup-sub-menu .popup-menu-item > :first-child {
+      &:ltr { /* 12px spacing + 2*4px padding + 16px icon */
+              padding-left: 36px; }
+      &:rtl { /* 12px spacing + 2*4px padding + 16px icon */
+              padding-right: 36px; }
+    }
   }
 
   .system-menu-action {
@@ -1990,25 +1996,26 @@ StScrollBar {
 //
 // On-Screen Keyboard
 //
+.word-suggestions {
+  font-size: 14pt;
+  spacing: 12px;
+  min-height: 20pt;
+}
+
 #keyboard {
   background-color: transparentize(black, 0.2);
 }
 
-  .keyboard-layout {
-    spacing: 10px;
-    padding: 10px;
-  }
-
-  .keyboard-row {
-    spacing: 15px;
+  .key-container {
+    spacing: 4px;
+    padding: 4px;
   }
 
   .keyboard-key {
     @include button(normal);
     min-height: 2em;
     min-width: 2em;
-    font-size: 14pt;
-    font-weight: bold;
+    font-size: 16pt;
     border-radius: 5px;
     border: 1px solid $borders-color;
     color: white;
@@ -2024,7 +2031,6 @@ StScrollBar {
 
   .keyboard-subkeys { //long press on a key popup
     color: white;
-    padding: 5px;
     -arrow-border-radius: 2px;
     -arrow-background-color: transparentize(black, 0.2);
     -arrow-border-width: 0px;

@@ -195,7 +195,7 @@ StScrollBar {
 //
 // Modal Dialogs
 //
-.headline { @include fontsize($font-size * 1.1); }
+.headline { font-size: 110%; }
 .lightbox { background-color: black; }
 .flashspot { background-color: white; }
 
@@ -268,12 +268,38 @@ StScrollBar {
   }
 }
 
-.show-processes-dialog-subject,
-.mount-question-dialog-subject,
+.mount-dialog-subject,
 .end-session-dialog-subject { //this should be a generic header class
   @include fontsize($font-size * 1.2);
   font-weight: bold;
   color: $fg_color;
+}
+
+//
+// Message Dialog
+//
+.message-dialog-main-layout {
+  padding: 12px 20px 0;
+  spacing: 12px;
+}
+
+.message-dialog-content {
+  max-width: 28em;
+  spacing: 20px;
+}
+
+.message-dialog-icon {
+  min-width: 48px;
+  icon-size: 48px;
+}
+
+.message-dialog-title {
+  font-weight: bold;
+}
+
+.message-dialog-subtitle {
+  color: $fg_color;
+  font-weight: bold;
 }
 
 //
@@ -367,38 +393,32 @@ StScrollBar {
 //
 .shell-mount-operation-icon { icon-size: 48px; }
 
-.show-processes-dialog,
-.mount-question-dialog {
+.mount-dialog {
   spacing: 24px;
-}
 
-.show-processes-dialog-subject,
-.mount-question-dialog-subject {
-  padding-top: 10px;
-  padding-left: 17px;
-  padding-bottom: 6px;
+  .message-dialog-title {
+    padding-top: 10px;
+    padding-left: 17px;
+    padding-bottom: 6px;
+    max-width: 34em;
 
-  &:rtl {
-    padding-left: 0px;
-    padding-right: 17px;
+    &:rtl {
+      padding-left: 0px;
+      padding-right: 17px;
+    }
+  }
+
+  .message-dialog-body {
+    padding-left: 17px;
+    width: 28em;
+
+    &:rtl {
+      padding-right: 17px;
+    }
   }
 }
 
-.mount-question-dialog-subject {
-    max-width: 500px;
-}
-
-.show-processes-dialog-description,
-.mount-question-dialog-description {
-  padding-left: 17px;
-  width: 28em;
-
-  &:rtl {
-    padding-right: 17px;
-  }
-}
-
-.show-processes-dialog-app-list {
+.mount-dialog-app-list {
   @include fontsize($font-size * 1.1);
   max-height: 200px;
   padding-top: 24px;
@@ -411,19 +431,19 @@ StScrollBar {
   }
 }
 
-.show-processes-dialog-app-list-item {
+.mount-dialog-app-list-item {
   color: darken($fg_color,10%);
   &:hover { color: $fg_color; }
   &:ltr { padding-right: 1em; }
   &:rtl { padding-left: 1em; }
 }
 
-.show-processes-dialog-app-list-item-icon {
+.mount-dialog-app-list-item-icon {
   &:ltr { padding-right: 17px; }
   &:rtl { padding-left: 17px; }
 }
 
-.show-processes-dialog-app-list-item-name {
+.mount-dialog-app-list-item-name {
   @include fontsize($font-size * 1.1);
 }
 
@@ -432,19 +452,19 @@ StScrollBar {
 //
 .prompt-dialog {
   //this is the width of the entire modal popup
-  width: 500px;
+  width: 34em;
   //border: 3px solid $_bubble_borders_color;
 
-  &-main-layout {
+  .message-dialog-main-layout {
     spacing: 24px;
     padding: 10px;
   }
 
-  &-message-layout {
+  .message-dialog-content {
     spacing: 16px;
   }
 
-  &-headline {
+  .message-dialog-title {
     @include fontsize($font-size * 1.3);
     font-weight: bold;
     color: $fg_color;
@@ -548,30 +568,6 @@ StScrollBar {
 //
 .access-dialog {
   spacing: 30px;
-
-  &-main-layout {
-    padding: 12px 20px 0;
-    spacing: 12px;
-  }
-
-  &-content {
-    max-width: 28em;
-    spacing: 20px;
-  }
-
-  &-icon {
-    min-width: 48px;
-    icon-size: 48px;
-  }
-
-  &-title {
-    font-weight: bold;
-  }
-
-  &-subtitle {
-    color: $fg_color;
-    font-weight: bold;
-  }
 }
 
 //
@@ -579,16 +575,21 @@ StScrollBar {
 //
 .geolocation-dialog {
   spacing: 30px;
+}
 
-  &-main-layout { spacing: 12px; }
-  &-content { spacing: 20px; }
-  &-icon { icon-size: 48px; }
-  &-title { font-weight: bold; }
+//
+// Extension Dialog
+//
+.extension-dialog {
+  .message-dialog-main-layout { spacing: 24px; padding: 10px; }
+  .message-dialog-title { color: $fg_color; }
+}
 
-  &-reason {
-    color: $fg_color;
-    font-weight: bold;
-  }
+//
+// Inhibit-Shortcuts Dialog
+//
+.inhibit-shortcuts-dialog {
+  spacing: 30px;
 }
 
 //
@@ -715,20 +716,19 @@ StScrollBar {
   border-radius: 5px;
 	border-image: url("assets/misc/osd.svg") 10 10 9 11;
 
-.osd-monitor-label { @include fontsize($font-size * 3); }
+.osd-monitor-label { font-size: 3em; }
 
   .level {
-    padding: 7px 5px;
-    height: 4px;
-    border-image: url("assets/misc/slider-osd.svg") 8;
+    padding: 0px;
+    height: 18px;
+//    border-image: url("assets/misc/slider-osd.svg") 8; // broken as of 3.30
     -barlevel-height: 4px;
-    -background-color: transparent;
+    -barlevel-background-color: transparentize(black, 0.5);
     -barlevel-active-background-color: $selected_bg_color;
     -barlevel-overdrive-color: $destructive_color_a;
     -barlevel-overdrive-separator-width: 1px;
   }
 }
-
 
 .resize-popup {
   color: $osd_fg_color;
@@ -737,6 +737,21 @@ StScrollBar {
   border-radius: 5px;
 	border-image: url("assets/misc/osd.svg") 10 10 9 11;
   padding: 12px;
+}
+
+//
+// Pad OSD
+//
+.pad-osd-window {
+  padding: 32px;
+  background-color: $osd_bg_color;
+
+  .pad-osd-title-box { spacing: 12px; }
+  .pad-osd-title-menu-box { spacing: 6px; }
+}
+
+.combo-box-label {
+  width: 15em;
 }
 
 //
@@ -798,7 +813,7 @@ StScrollBar {
 }
 
 .input-source-switcher-symbol {
-  @include fontsize($font-size * 4);
+  font-size: 34pt;
   width: 96px;
   height: 96px;
 }
@@ -982,6 +997,12 @@ StScrollBar {
   .aggregate-menu {
     width: 23em;
     .popup-menu-icon { padding: 0 4px; }
+    .popup-sub-menu .popup-menu-item > :first-child {
+      &:ltr { /* 12px spacing + 2*4px padding + 16px icon */
+              padding-left: 36px; }
+      &:rtl { /* 12px spacing + 2*4px padding + 16px icon */
+              padding-right: 36px; }
+    }
   }
 
   .system-menu-action {
@@ -1034,10 +1055,12 @@ StScrollBar {
 
 .datemenu-calendar-column { spacing: 0.5em; }
 .datemenu-displays-section { padding-bottom: 3em; }
+.datemenu-displays-box { spacing: 1em; }
 
 .datemenu-today-button,
 .world-clocks-button,
-.message-list-section-title {
+.weather-button,
+.events-section-title {
   border-radius: 4px;
   padding: .4em;
 }
@@ -1052,7 +1075,8 @@ StScrollBar {
 
 .datemenu-today-button,
 .world-clocks-button,
-.message-list-section-title {
+.weather-button,
+.events-section-title {
   padding: 7px 10px 7px 10px;
   @extend %reset_style;
 
@@ -1068,17 +1092,22 @@ StScrollBar {
 }
 
 .datemenu-today-button .date-label {
-  @include fontsize($font-size * 1.5);
+  font-size: 1.5em;
 }
 
 .world-clocks-header,
-.message-list-section-title {
+.weather-header,
+.events-section-title {
   color: transparentize($fg_color, 0.6);
   font-weight: bold;
 }
 
 .world-clocks-grid {
   spacing-rows: 0.4em;
+}
+
+.weather-box {
+  spacing: 0.4em;
 }
 
 .calendar-month-label {
@@ -1116,7 +1145,7 @@ StScrollBar {
 }
 
 .calendar-day-base {
-  @include fontsize($font-size * 0.875);
+  font-size: 80%;
   text-align: center;
   width: 25px; height: 25px;
   padding: 0.1em;
@@ -1135,7 +1164,7 @@ StScrollBar {
   &.calendar-day-heading {  //day of week heading
     color: transparentize($fg_color, 0.15);
     margin-top: 1em;
-    @include fontsize($font-size * 0.75);
+    font-size: 70%;
   }
 }
 
@@ -1178,12 +1207,12 @@ StScrollBar {
 }
 
 .calendar-week-number {
-  @include fontsize($font-size * 0.75);
+  font-size: 70%;
   font-weight: bold;
-  width: 2.0em; height: 1.5em;
+  width: 2.3em; height: 1.8em;
   border-radius: 2px;
-  padding: 0.4em 0 0;
-  margin: 2px 6px;
+  padding: 0.5em 0 0;
+  margin: 6px;
   background-color: transparentize($fg_color,0.7);
   color: $bg_color;
 }
@@ -1204,31 +1233,6 @@ StScrollBar {
   spacing: 0.7em;
 }
 
-.message-list-section-title-box {
-  spacing: 0.4em;
-}
-
-.message-list-section-close > StIcon {
-  icon-size: 26px;
-  border-radius: 0px;
-  color: transparent;
-  background-color: transparent;
-  background-image: url('assets/misc/message-list-close.svg');
-}
-
-.message-list-section-close:hover > StIcon,
-.message-list-section-close:focus > StIcon {
-  color: transparent;
-  background-color: transparent;
-  background-image: url('assets/misc/message-list-close-hover.svg');
-}
-
-.message-list-section-close:active > StIcon {
-  color: transparent;
-  background-color: transparent;
-  background-image: url('assets/misc/message-list-close-active.svg');
-}
-
 .message {
   background-color: transparent;
   border-image: url("assets/misc/message.svg") 4 4 4 4;
@@ -1245,6 +1249,7 @@ StScrollBar {
 
 .message-icon-bin > StIcon {
   icon-size: 32px;
+  -st-icon-style: symbolic;
 }
 
 .message-secondary-bin {
@@ -1260,11 +1265,11 @@ StScrollBar {
 
 .message-title {
   font-weight: bold;
-  @include fontsize($font-size);
+  font-size: 1em;
 }
 .message-content {
   padding: 8px;
-  @include fontsize($font-size);
+  font-size: 1em;
 }
 
 .message-media-control {
@@ -1341,9 +1346,9 @@ StScrollBar {
 // Network Dialogs
 //
 .nm-dialog {
-  max-height: 500px;
-  min-height: 450px;
-  min-width: 470px;
+  max-height: 34em;
+  min-height: 31em;
+  min-width: 32em;
 
   &-content {
     padding: 10px;
@@ -1355,7 +1360,7 @@ StScrollBar {
   &-airplane-box { spacing: 12px; }
 
   &-airplane-headline {
-    @include fontsize($font-size * 1.1);
+    font-size: 1.1em;
     font-weight: bold;
     text-align: center;
   }
@@ -1372,11 +1377,11 @@ StScrollBar {
 
   &-header {
     font-weight: bold;
-    @include fontsize($font-size * 1.2);
+    font-size: 1.2em;
   }
 
   &-item {
-    @include fontsize($font-size);
+    font-size: 1em;
     border-bottom: 0px solid;
     padding: 12px;
     spacing: 0px;
@@ -1404,13 +1409,11 @@ StScrollBar {
 .overview-controls { padding-bottom: 32px; }
 
 .window-picker { //container around window thumbnails
-  -horizontal-spacing: 32px;
-  -vertical-spacing: 32px;
-  padding-left: 32px;
-  padding-right: 32px;
-  padding-bottom: 48px;
+  -horizontal-spacing: 16px;
+  -vertical-spacing: 16px;
+  padding: 0 16px 16px;
 
-  &.external-monitor { padding: 32px; }
+  &.external-monitor { padding: 16px; }
 }
 
 .window-clone-border {
@@ -1419,7 +1422,7 @@ StScrollBar {
   box-shadow: inset 0px 0px 0px 1px transparentize($selected_bg_color, 1);
 }
 
-.window-caption, .window-caption:hover {
+.window-caption {
   spacing: 25px;
   color: $osd_fg_color;
   background-color: transparentize(black, 0.3);
@@ -1480,24 +1483,23 @@ StScrollBar {
   height: 2px;
 }
 
-.list-search-result-content { spacing: 12px; padding: 12px; }
+.list-search-result-content { spacing: 30px; }
 
-.list-search-result-title { @include fontsize($font-size * 1.5); color: $osd_fg_color; }
+.list-search-result-title { color: $osd_fg_color; spacing: 12px; }
 
-.list-search-result-description { color: darken($osd_fg_color, 20%); }
+.list-search-result-description { color: transparentize(darken($osd_fg_color, 20%), 0.3); }
+
+.list-search-provider-details { width: 150px; color: darken($osd_fg_color,10%); margin-top: 0.1em; }
+
+.list-search-provider-content { spacing: 20px; }
 
 .search-provider-icon { padding: 15px; }
-.search-provider-icon-more {
-  width: 16px;
-  height: 16px;
-  background-image: url("assets/misc/more-results.svg");
-}
 
 //
 // Dash
 //
 #dash {
-  @include fontsize($font-size);
+  font-size: 1em;
   color: $fg_color;
   background-color: transparent;
   padding: 7px 0px 13px 0px;
@@ -1660,6 +1662,13 @@ StScrollBar {
 }
 
 //.app-display { spacing: 20px; }
+
+.system-action-icon {
+  background-color: $bg_color;
+  color: $fg_color;
+  border-radius: 99px;
+  icon-size: 48px;
+}
 
 //favorties | all toggle container
 .app-view-controls { padding-bottom: 32px; }
@@ -1826,6 +1835,12 @@ StScrollBar {
     padding: 18px 18px 18px 9px;
 	  border-image: url("assets/misc/workspace-thumb-bg-rtl.svg") 2 11 10 10;
   }
+
+  .placeholder {
+    background-image: url("assets/dash/dash-placeholder.svg");
+    background-size: contain;
+    height: 24px;
+  }
 }
 .workspace-thumbnail-indicator {
   border: 4px solid transparentize($selected_bg_color, 0.2);
@@ -1842,7 +1857,7 @@ StScrollBar {
 }
 
 %status_text {
-  @include fontsize($font-size * 2);
+  font-size: 2em;
   font-weight: bold;
   color: $fg_color;
 }
@@ -1856,7 +1871,7 @@ StScrollBar {
 .notification-banner,
 .notification-banner:hover,
 .notification-banner:focus {
-  @include fontsize($font-size);
+  font-size: 1em;
   width: 34em;
   margin: 5px;
   padding: 10px;
@@ -1889,7 +1904,7 @@ StScrollBar {
 }
 
 .summary-source-counter {
-  @include fontsize($font-size * 1.1);
+  font-size: 1.1em;
   font-weight: bold;
   height: 2.4em;
   width: 2.4em;
@@ -1925,7 +1940,7 @@ StScrollBar {
 
 .chat-meta-message {
   padding-left: 4px;
-  @include fontsize($font-size);
+  font-size: 9pt;
   font-weight: bold;
   color: darken($fg_color,20%);
 
@@ -1980,35 +1995,6 @@ StScrollBar {
 
 // Eeeky things
 
-$legacy_icon_size: 24px;
-
-.legacy-tray {
-  background-color: $bg_color;
-  border: 1px solid $borders_color;
-  border-bottom-width: 0;
-  background-gradient-start: $button_gradient_color_a;
-  background-gradient-end: $button_gradient_color_b;
-  background-gradient-direction: vertical;
-  box-shadow: inset 0px 1px opacify($highlight_shadow, 0.15);
-
-  &:ltr { border-radius: 0 2px 0 0; border-left-width: 0; }
-  &:rtl { border-radius: 2px 0 0 0; border-right-width: 0; }
-}
-
-.legacy-tray-handle,
-.legacy-tray-icon {
-  padding: 6px;
-  & StIcon { icon-size: $legacy_icon_size; }
-  &:hover, &:focus { background-color: transparentize($fg_color,0.9); }
-}
-
-.legacy-tray-icon-box {
-  spacing: 12px;
-  &:ltr { padding-left: 12px; }
-  &:rtl { padding-right: 12px; }
-  & StButton { width: $legacy_icon_size; height: $legacy_icon_size }
-}
-
 // Magnifier
 
 .magnifier-zoom-region {
@@ -2019,25 +2005,26 @@ $legacy_icon_size: 24px;
 //
 // On-Screen Keyboard
 //
+.word-suggestions {
+  font-size: 14pt;
+  spacing: 12px;
+  min-height: 20pt;
+}
+
 #keyboard {
   background-color: transparentize(black, 0.2);
 }
 
-  .keyboard-layout {
-    spacing: 10px;
-    padding: 10px;
-  }
-
-  .keyboard-row {
-    spacing: 15px;
+  .key-container {
+    spacing: 4px;
+    padding: 4px;
   }
 
   .keyboard-key {
     @include button(normal);
-    min-height: 2em;
-    min-width: 2em;
-    @include fontsize($font-size * 1.56);
-    font-weight: bold;
+    min-height: 1.2em;
+    min-width: 1.2em;
+    font-size: 16pt;
     border-radius: 5px;
     border: 1px solid $borders-color;
     color: white;
@@ -2053,7 +2040,6 @@ $legacy_icon_size: 24px;
 
   .keyboard-subkeys { //long press on a key popup
     color: white;
-    padding: 5px;
     -arrow-border-radius: 2px;
     -arrow-background-color: transparentize(black, 0.2);
     -arrow-border-width: 0px;
@@ -2140,18 +2126,16 @@ $legacy_icon_size: 24px;
   .login-dialog-button-box { spacing: 5px; }
   .login-dialog-message-warning { color: $warning_color; }
   .login-dialog-message-hint { padding-top: 0; padding-bottom: 20px; }
-  .login-dialog-user-selection-box {
-    padding: 100px 0px;
-    .login-dialog-not-listed-label {
-      padding-left: 2px;
-      .login-dialog-not-listed-button:focus &,
-      .login-dialog-not-listed-button:hover & {
-        color: $osd_fg_color;
-      }
+  .login-dialog-user-selection-box { padding: 100px 0px; }
+  .login-dialog-not-listed-label {
+    padding-left: 2px;
+    .login-dialog-not-listed-button:focus &,
+    .login-dialog-not-listed-button:hover & {
+      color: $osd_fg_color;
     }
   }
   .login-dialog-not-listed-label {
-    @include fontsize($font-size * 0.9);
+    font-size: 90%;
     font-weight: bold;
     color: darken($osd_fg_color,30%);
     padding-top: 1em;
@@ -2162,7 +2146,7 @@ $legacy_icon_size: 24px;
     spacing: 12px;
     padding: .2em;
     width: 23em;
-    &:expanded .login-dialog-user-list-item:focus { background-color: $selected_bg_color; color: $selected_fg_color; }
+    &:expanded .login-dialog-user-list-item:selected { background-color: $selected_bg_color; color: $selected_fg_color; }
     &:expanded .login-dialog-user-list-item:logged-in { border-right: 2px solid $selected_bg_color; }
   }
   .login-dialog-user-list-item {
@@ -2171,7 +2155,6 @@ $legacy_icon_size: 24px;
     color: darken($osd_fg_color,30%);
     &:ltr { padding-right: 1em; }
     &:rtl { padding-left: 1em; }
-    &:hover { background-color: $selected_bg_color; color: $selected_fg_color; }
     .login-dialog-timed-login-indicator {
       height: 2px;
       margin: 2px 0 0 0;
@@ -2183,7 +2166,7 @@ $legacy_icon_size: 24px;
   .login-dialog-username,
   .user-widget-label {
     color: $osd_fg_color;
-    @include fontsize($font-size * 1.2);
+    font-size: 120%;
     font-weight: bold;
     text-align: left;
     padding-left: 15px;
@@ -2202,7 +2185,7 @@ $legacy_icon_size: 24px;
 
   .login-dialog-prompt-label {
     color: darken($osd_fg_color, 20%);
-    @include fontsize($font-size * 1.1);
+    font-size: 110%;
     padding-top: 1em;
   }
 
@@ -2240,11 +2223,11 @@ $legacy_icon_size: 24px;
 }
 
 .screen-shield-clock-time {
-  @include fontsize($font-size * 8);
+  font-size: 72pt;
   text-shadow: 0px 2px 2px rgba(0,0,0,0.4);
 }
 
-.screen-shield-clock-date { @include fontsize($font-size * 3); }
+.screen-shield-clock-date { font-size: 28pt; }
 
 .screen-shield-notifications-container {
   spacing: 6px;
@@ -2346,7 +2329,7 @@ $legacy_icon_size: 24px;
   }
 
   .lg-completions-text {
-    @include fontsize($font-size * 0.9);
+    font-size: .9em;
     font-style: italic;
   }
 
