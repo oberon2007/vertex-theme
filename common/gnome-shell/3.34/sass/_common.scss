@@ -2006,25 +2006,26 @@ StScrollBar {
 //
 // On-Screen Keyboard
 //
+.word-suggestions {
+  font-size: 14pt;
+  spacing: 12px;
+  min-height: 20pt;
+}
+
 #keyboard {
   background-color: transparentize(black, 0.2);
 }
 
-  .keyboard-layout {
-    spacing: 10px;
-    padding: 10px;
-  }
-
-  .keyboard-row {
-    spacing: 15px;
+  .key-container {
+    spacing: 4px;
+    padding: 4px;
   }
 
   .keyboard-key {
     @include button(normal);
-    min-height: 2em;
-    min-width: 2em;
-    font-size: 14pt;
-    font-weight: bold;
+    min-height: 1.2em;
+    min-width: 1.2em;
+    font-size: 16pt;
     border-radius: 5px;
     border: 1px solid $borders-color;
     color: white;
@@ -2040,7 +2041,6 @@ StScrollBar {
 
   .keyboard-subkeys { //long press on a key popup
     color: white;
-    padding: 5px;
     -arrow-border-radius: 2px;
     -arrow-background-color: transparentize(black, 0.2);
     -arrow-border-width: 0px;
