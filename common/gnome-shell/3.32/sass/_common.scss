@@ -719,17 +719,16 @@ StScrollBar {
 .osd-monitor-label { font-size: 3em; }
 
   .level {
-    padding: 7px 5px;
-    height: 4px;
-    border-image: url("assets/misc/slider-osd.svg") 8;
+    padding: 0px;
+    height: 18px;
+//    border-image: url("assets/misc/slider-osd.svg") 8; // broken as of 3.30
     -barlevel-height: 4px;
-    -background-color: transparent;
+    -barlevel-background-color: transparentize(black, 0.5);
     -barlevel-active-background-color: $selected_bg_color;
     -barlevel-overdrive-color: $destructive_color_a;
     -barlevel-overdrive-separator-width: 1px;
   }
 }
-
 
 .resize-popup {
   color: $osd_fg_color;
