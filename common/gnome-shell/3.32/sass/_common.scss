@@ -1296,8 +1296,8 @@ StScrollBar {
     color: $insensitive_fg_color;
     background-color: $bg_color;
     border-radius: 2px;
-    icon-size: 16px;
-    padding: 8px;
+    icon-size: 32px !important;
+    padding: 6px;
   }
 }
 
