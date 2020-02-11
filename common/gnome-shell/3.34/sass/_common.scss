@@ -496,6 +496,23 @@ StScrollBar {
     @include fontsize($font-size);
     padding-bottom: 8px;
   }
+
+  &-pim-box {
+    spacing: 1em;
+  }
+
+  &-grid {
+    spacing-rows: 15px;
+    spacing-columns: 1em;
+  }
+
+  &-keyfiles-box {
+    spacing: 1em;
+  }
+
+  &-button.button {
+    padding: 8px;
+  }
 }
 
 .hidden {
