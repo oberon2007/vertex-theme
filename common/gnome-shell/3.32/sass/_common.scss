@@ -484,7 +484,7 @@ StScrollBar {
 
   &-error-label {
     @include fontsize($font-size);
-    color: $error_color;
+    color: $warning_color;
     padding-bottom: 8px;
   }
 
