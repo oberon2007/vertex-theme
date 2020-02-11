@@ -115,7 +115,6 @@ StScrollBar {
   StButton#vhandle, StButton#hhandle {
     border-radius: 8px;
     background-color: $_scrollbar_bg_color;
-    border: 0px solid;
     margin: 0px;
 
     &:hover { background-color: lighten($_scrollbar_bg_color, 10%); }
