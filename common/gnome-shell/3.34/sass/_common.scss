@@ -1179,12 +1179,24 @@ StScrollBar {
 .calendar-change-month-back {
   background-image: url("assets/misc/calendar-arrow-left.svg");
 
+  &:focus { @include button(focus); }
+
+  &:hover,&:checked { @include button(hover); }
+
+  &:active { @include button(active);}
+
   &:rtl { background-image: url("assets/misc/calendar-arrow-right.svg"); }
 }
 
 //arrow forward
 .calendar-change-month-forward {
   background-image: url("assets/misc/calendar-arrow-right.svg");
+
+  &:focus { @include button(focus); }
+
+  &:hover,&:checked { @include button(hover); }
+
+  &:active { @include button(active);}
 
   &:rtl { background-image: url("assets/misc/calendar-arrow-left.svg"); }
 }
