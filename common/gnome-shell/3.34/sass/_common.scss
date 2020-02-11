@@ -1389,6 +1389,11 @@ StScrollBar {
   }
 }
 
+.message-close-button {
+  &:hover { color: transparentize($fg_color, 0.3); }
+  &:active { color: $selected_bg_color }
+}
+
 .message-media-control {
   padding: 12px;
   color: transparentize($fg_color, 0.3);
