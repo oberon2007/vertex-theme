@@ -1192,10 +1192,10 @@ StScrollBar {
 .calendar-day-base {
   font-size: 80%;
   text-align: center;
-  width: 25px; height: 25px;
+  width: 2.6em; height: 2.6em;
   padding: 0.1em;
   margin: 2px;
-  border-radius: 12.5px;
+  border-radius: 1.6em;
   font-feature-settings: "tnum";
 
   &:hover, &:focus { background-color: transparentize(black, 0.8); }
