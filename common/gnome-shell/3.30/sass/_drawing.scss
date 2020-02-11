@@ -76,6 +76,14 @@
     border-image: url("assets/button/button-border-hover.svg") 4;
   }
 
+  @else if $t==hover-transparent {
+  //
+  // hovered button
+  //
+    color: transparent;
+    border-image: url("assets/button/button-border-hover.svg") 4;
+  }
+
   @else if $t==active {
   //
   // pushed button
@@ -86,6 +94,18 @@
     text-shadow: 0 -1px $button_active_text_shadow;
     icon-shadow: 0 -1px $button_active_text_shadow;
   }
+
+  @else if $t==active-transparent {
+  //
+  // pushed button
+  //
+    color: transparent;
+    border-image: url("assets/button/button-border-active.svg") 4;
+
+    text-shadow: 0 -1px $button_active_text_shadow;
+    icon-shadow: 0 -1px $button_active_text_shadow;
+  }
+
 
   @else if $t==insensitive {
   //

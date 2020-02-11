@@ -1163,42 +1163,64 @@ StScrollBar {
 }
 
 .pager-button {
-  color: $fg_color;
+  color: transparent;
   background-color: transparent;
   width: 32px;
   border-radius: 2px;
 
-  &:focus { background-color: transparent; }
-
-  &:hover { background-color: transparentize($fg_color, 0.85); }
-
-  &:active { background-color: darken($bg_color, 5%); }
+  &:focus, &:hover, &:active { background-color: transparent; }
 }
 
 //arrow back
 .calendar-change-month-back {
   background-image: url("assets/misc/calendar-arrow-left.svg");
 
-  &:focus { @include button(focus); }
+  &:focus {background-image: url("assets/misc/calendar-arrow-left-active.svg"); }
 
-  &:hover,&:checked { @include button(hover); }
+  &:hover { @include button(hover-transparent); }
 
-  &:active { @include button(active);}
+  &:active {
+    @include button(active-transparent);
+    background-image: url("assets/misc/calendar-arrow-left-active.svg"); }
 
-  &:rtl { background-image: url("assets/misc/calendar-arrow-right.svg"); }
+  &:rtl {
+    background-image: url("assets/misc/calendar-arrow-right.svg");
+
+    &:focus {background-image: url("assets/misc/calendar-arrow-right-active.svg"); }
+
+    &:hover { @include button(hover-transparent); }
+
+    &:active {
+      @include button(active-transparent);
+      background-image: url("assets/misc/calendar-arrow-right-active.svg");
+    }
+  }
 }
 
 //arrow forward
 .calendar-change-month-forward {
   background-image: url("assets/misc/calendar-arrow-right.svg");
 
-  &:focus { @include button(focus); }
+  &:focus {background-image: url("assets/misc/calendar-arrow-right-active.svg"); }
 
-  &:hover,&:checked { @include button(hover); }
+  &:hover { @include button(hover-transparent); }
 
-  &:active { @include button(active);}
+  &:active {
+    @include button(active-transparent);
+    background-image: url("assets/misc/calendar-arrow-right-active.svg");
+  }
 
-  &:rtl { background-image: url("assets/misc/calendar-arrow-left.svg"); }
+  &:rtl {
+    background-image: url("assets/misc/calendar-arrow-left.svg");
+
+    &:focus {background-image: url("assets/misc/calendar-arrow-left-active.svg"); }
+
+    &:hover { @include button(hover-transparent); }
+
+    &:active {
+      @include button(active-transparent);
+      background-image: url("assets/misc/calendar-arrow-left-active.svg"); }
+  }
 }
 
 .calendar-day-base {
