@@ -1595,7 +1595,6 @@ StScrollBar {
 //
 // Search Results
 //
-#searchResultsBin { max-width: 1000px; }
 
 #searchResultsContent {
   max-width: 1000px;
@@ -1990,7 +1989,6 @@ StScrollBar {
 }
 
 //Some hacks I don't even
-.search-display > StBoxLayout,
 .all-apps,
 .frequent-apps > StBoxLayout {
   // horizontal padding to make sure scrollbars or dash don't overlap content
