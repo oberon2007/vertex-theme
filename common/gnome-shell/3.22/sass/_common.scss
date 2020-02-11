@@ -442,7 +442,7 @@ StScrollBar {
     color: $fg_color;
   }
 
-  &-descritption:rtl {
+  &-description:rtl {
     text-align: right;
   }
 
@@ -896,7 +896,7 @@ StScrollBar {
       -panel-corner-border-color: black;
     }
 
-    &.lock-screen, &.login-screen, &unlock-screen {
+    &.lock-screen, &.login-screen, &.unlock-screen {
       -panel-corner-radius: 0;
       -panel-corner-background-color: transparent;
       -panel-corner-border-color: transparent;
@@ -1204,20 +1204,20 @@ StScrollBar {
 .message-list-section-close > StIcon {
   icon-size: 26px;
   border-radius: 0px;
-  color: transparent; 
+  color: transparent;
   background-color: transparent;
   background-image: url('assets/misc/message-list-close.svg');
 }
 
 .message-list-section-close:hover > StIcon,
 .message-list-section-close:focus > StIcon {
-  color: transparent; 
+  color: transparent;
   background-color: transparent;
   background-image: url('assets/misc/message-list-close-hover.svg');
 }
 
 .message-list-section-close:active > StIcon {
-  color: transparent; 
+  color: transparent;
   background-color: transparent;
   background-image: url('assets/misc/message-list-close-active.svg');
 }
@@ -1265,7 +1265,7 @@ StScrollBar {
   color: transparentize($fg_color, 0.3);
 
   &:hover { color: $fg_color; }
-  &:active { color: $selected_bg_color; } 
+  &:active { color: $selected_bg_color; }
 
   &:last-child:ltr { padding-right: 18px; }
   &:last-child:rtl { padding-left: 18px; }
