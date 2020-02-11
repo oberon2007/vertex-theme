@@ -1235,28 +1235,28 @@ StScrollBar {
   &:active { border-image: url("assets/misc/message-active.svg") 4 4 4 4; }
 
   &-icon-bin {
-    padding: 0.68em 0.2em 0.68em 0.68em
+    padding: 10px 3px 10px 10px;
 
-    &:rtl { padding: 0.68em 0.68em 0.68em 0.2em; }
+    &:rtl { padding: 10px 10px 10px 3px; }
+
+    > StIcon {
+      color: inherit;
+      icon-size: 1.33em;
+      -st-icon-style: symbolic;
+    }
   }
 
-  &-icon-bin > StIcon {
-    color: inherit;
-    icon-size: 1.33em;
-    -st-icon-style: symbolic;
-  }
-
-  &-secondary-bin {
-    padding: 0 0.82em;
-  }
-
+  &-secondary-bin,
   &-secondary-bin > .event-time {
     color: transparentize($fg_color, 0.6);
     font-size: 0.9em;
 
     /* HACK: the label should be baseline-aligned with a 1em label,
              fake this with some bottom padding */
-    padding-bottom: 0.05em;
+    padding-bottom: 0.13em;
+
+    &:ltr { padding-left: 8px; }
+    &:rtl { padding-right: 8px; }
   }
 
   &:active .message-secondary-bin,
@@ -1264,15 +1264,19 @@ StScrollBar {
     color: transparentize($selected_fg_color, 0.6);
 }
 
-  &-secondary-bin > StIcon { icon-size: 1.33em; }
+  &-secondary-bin > StIcon { icon-size: 16px; }
 
   &-title {
     color: inherit;
     font-weight: bold;
+    font-size: 1em;
+    padding: 2px 0 2px 0;
   }
+
   &-content {
     color: inherit;
     padding: 8px;
+    font-size: 1em;
   }
 }
 

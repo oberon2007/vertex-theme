@@ -1253,15 +1253,20 @@ StScrollBar {
   &:active { border-image: url("assets/misc/message-active.svg") 4 4 4 4; }
 
   &-icon-bin {
-    padding: 0.68em 0.2em 0.68em 0.68em
+    padding: 0.68em 0.2em 0.68em 0.68em;
 
     &:rtl { padding: 0.68em 0.68em 0.68em 0.2em; }
-  }
 
-  &-icon-bin > StIcon {
-    color: inherit;
-    icon-size: 1.33em;
-    -st-icon-style: symbolic;
+    StIcon {
+      color: inherit;
+      icon-size: 1.33em;
+      -st-icon-style: symbolic;
+    }
+
+    > .fallback-window-icon {
+      width: 1.33em;
+      height: 1.33em;
+    }
   }
 
   &-secondary-bin {
@@ -1288,6 +1293,7 @@ StScrollBar {
     color: inherit;
     font-weight: bold;
   }
+
   &-content {
     color: inherit;
     padding: 8px;
