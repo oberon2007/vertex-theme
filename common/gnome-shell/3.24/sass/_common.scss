@@ -128,17 +128,14 @@ StScrollBar {
 //
 .slider {
   -slider-height: 4px;
-  -slider-background-color: transparent;                      //background of the trough
+  -slider-background-color: transparentize(black, 0.8);       //background of the trough
   -slider-border-color: transparentize(black, 1);             //trough border color
   -slider-active-background-color: $selected_bg_color;        //active trough fill
   -slider-active-border-color: transparentize(black, 1);      //active trough border
   -slider-border-width: 0;
   -slider-handle-radius: 4px;
   height: 18px;
-  border: 0 solid transparent;
-  border-right-width: 1px;
-  border-left-width: 5px;
-  border-image: url("assets/misc/slider.svg") 8;
+  border-image: url("assets/misc/slider.svg") 3 3 8 8;
   color: transparent;
 }
 
@@ -501,6 +498,91 @@ StScrollBar {
 }
 
 //
+// Audio selection dialog
+//
+.audio-device-selection-dialog { spacing: 30px; }
+
+.audio-selection {
+
+  &-content {
+    spacing: 20px;
+    padding: 24px;
+  }
+
+  &-title {
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &-box { spacing: 20px; }
+
+  &-device {
+    border: 1px solid $borders_color;
+    border-radius: 3px;
+
+    &:active,&:hover,&:focus {
+      background-color: $selected_bg_color;
+      border-color: $selected_bg_color;
+    }
+  }
+
+  &-device-box {
+    padding: 20px;
+    spacing: 20px;
+  }
+
+  &-device-icon { icon-size: 64px; }
+}
+
+//
+// Access Dialog
+//
+.access-dialog {
+  spacing: 30px;
+
+  &-main-layout {
+    padding: 12px 20px 0;
+    spacing: 12px;
+  }
+
+  &-content {
+    max-width: 28em;
+    spacing: 20px;
+  }
+
+  &-icon {
+    min-width: 48px;
+    icon-size: 48px;
+  }
+
+  &-title {
+    font-weight: bold;
+  }
+
+  &-subtitle {
+    color: $fg_color;
+    font-weight: bold;
+  }
+}
+
+//
+// Geolocation Dialog
+//
+.geolocation-dialog {
+  spacing: 30px;
+
+  &-main-layout { spacing: 12px; }
+  &-content { spacing: 20px; }
+  &-icon { icon-size: 48px; }
+  &-title { font-weight: bold; }
+
+  &-reason {
+    color: $fg_color;
+    font-weight: bold;
+  }
+}
+
+//
 // Network Agent Dialog
 //
 .network-dialog-secret-table {
@@ -517,7 +599,7 @@ StScrollBar {
 // Popvers/Menus
 //
 .popup-menu {
-  min-width: 200px;
+  min-width: 15em;
   border-image: url("assets/menu/menu.svg") 10 10 35 14;
 
   .popup-menu-arrow { } //defined globally in the TOP BAR
@@ -634,6 +716,10 @@ StScrollBar {
     border-radius: 0;
     color: $selected_bg_color;
   }
+ .level-bar {
+    background-color: $selected_bg_color;
+    border-radius: 2px;
+  }
 }
 
 .resize-popup {
@@ -643,6 +729,21 @@ StScrollBar {
   border-radius: 5px;
 	border-image: url("assets/misc/osd.svg") 10 10 9 11;
   padding: 12px;
+}
+
+//
+// Pad OSD
+//
+.pad-osd-window {
+  padding: 32px;
+  background-color: $osd_bg_color;
+
+  .pad-osd-title-box { spacing: 12px; }
+  .pad-osd-title-menu-box { spacing: 6px; }
+}
+
+.combo-box-label {
+  width: 15em;
 }
 
 //
@@ -708,6 +809,11 @@ StScrollBar {
   width: 96px;
   height: 96px;
 }
+
+//
+//Window Cycler
+//
+.cycler-highlight { border: 5px solid $selected_bg_color; }
 
 //
 // Workspace Switcher
@@ -853,6 +959,11 @@ StScrollBar {
     spacing: 2px;
   }
 
+  // spacing between power icon and (optional) percentage label
+  .power-status.panel-status-indicators-box {
+    spacing: 0;
+  }
+
   .screencast-indicator { color: red; }
 }
 
@@ -876,7 +987,7 @@ StScrollBar {
   }
 
   .aggregate-menu {
-    width: 280px;
+    width: 23em;
     .popup-menu-icon { padding: 0 4px; }
   }
 
@@ -930,10 +1041,12 @@ StScrollBar {
 
 .datemenu-calendar-column { spacing: 0.5em; }
 .datemenu-displays-section { padding-bottom: 3em; }
+.datemenu-displays-box { spacing: 1em; }
 
 .datemenu-today-button,
 .world-clocks-button,
-.message-list-section-title {
+.weather-button,
+.events-section-title {
   border-radius: 4px;
   padding: .4em;
 }
@@ -948,7 +1061,8 @@ StScrollBar {
 
 .datemenu-today-button,
 .world-clocks-button,
-.message-list-section-title {
+.weather-button,
+.events-section-title {
   padding: 7px 10px 7px 10px;
   @extend %reset_style;
 
@@ -968,13 +1082,18 @@ StScrollBar {
 }
 
 .world-clocks-header,
-.message-list-section-title {
+.weather-header,
+.events-section-title {
   color: transparentize($fg_color, 0.6);
   font-weight: bold;
 }
 
 .world-clocks-grid {
   spacing-rows: 0.4em;
+}
+
+.weather-box {
+  spacing: 0.4em;
 }
 
 .calendar-month-label {
@@ -1014,10 +1133,10 @@ StScrollBar {
 .calendar-day-base {
   font-size: 80%;
   text-align: center;
-  width: 25px; height: 25px;
+  width: 2.6em; height: 2.6em;
   padding: 0.1em;
   margin: 2px;
-  border-radius: 12.5px;
+  border-radius: 1.6em;
 
   &:hover, &:focus { background-color: transparentize(black, 0.8); }
 
@@ -1073,45 +1192,36 @@ StScrollBar {
   opacity: 0.5;
 }
 
+.calendar-week-number {
+  font-size: 70%;
+  font-weight: bold;
+  width: 2.3em; height: 1.8em;
+  border-radius: 2px;
+  padding: 0.5em 0 0;
+  margin: 6px;
+  background-color: transparentize($fg_color,0.7);
+  color: $bg_color;
+}
+
 //
 // Message list
 //
 .message-list {
-  width: 420px;
-}
+  width: 31.5em;
 
-.message-list-sections {
-  spacing: 1.5em;
-}
+  &-list-sections {
+    spacing: 1em;
+  }
 
-.message-list-section,
-.message-list-section-list {
-  spacing: 0.7em;
-}
+  &-list-section,
+  &-list-section-list {
+    spacing: 0.4em;
+  }
 
-.message-list-section-title-box {
-  spacing: 0.4em;
-}
-
-.message-list-section-close > StIcon {
-  icon-size: 26px;
-  border-radius: 0px;
-  color: transparent;
-  background-color: transparent;
-  background-image: url('assets/misc/message-list-close.svg');
-}
-
-.message-list-section-close:hover > StIcon,
-.message-list-section-close:focus > StIcon {
-  color: transparent;
-  background-color: transparent;
-  background-image: url('assets/misc/message-list-close-hover.svg');
-}
-
-.message-list-section-close:active > StIcon {
-  color: transparent;
-  background-color: transparent;
-  background-image: url('assets/misc/message-list-close-active.svg');
+  &-placeholder {
+    StIcon { width: 0; height: 0; }
+    StLabel { color: $insensitive_fg_color; }
+  }
 }
 
 .message {
@@ -1120,36 +1230,79 @@ StScrollBar {
   padding: 4px;
 
   &:hover, &:focus { border-image: url("assets/misc/message-hover.svg") 4 4 4 4; }
+
+  &-icon-bin {
+    padding: 10px 3px 10px 10px;
+
+    &:rtl { padding: 10px 10px 10px 3px; }
+
+    > StIcon {
+      color: inherit;
+      icon-size: 1.33em;
+      -st-icon-style: symbolic;
+    }
+  }
+
+  &-secondary-bin,
+  &-secondary-bin > .event-time {
+    color: transparentize($fg_color, 0.6);
+    font-size: 0.9em;
+
+    /* HACK: the label should be baseline-aligned with a 1em label,
+             fake this with some bottom padding */
+    padding-bottom: 0.13em;
+
+    &:ltr { padding-left: 8px; }
+    &:rtl { padding-right: 8px; }
+  }
+
+  &:active .message-secondary-bin,
+  &:active .message-secondary-bin > .event-time {
+    color: transparentize($selected_fg_color, 0.6);
 }
 
-.message-icon-bin {
-  padding: 8px 0px 8px 8px;
+  &-secondary-bin > StIcon { icon-size: 16px; }
 
-  &:rtl { padding: 8px 8px 8px 0px; }
+  &-title {
+    color: inherit;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 2px 0 2px 0;
+  }
+
+  &-content {
+    color: inherit;
+    padding: 8px;
+    font-size: 1em;
+  }
 }
 
-.message-icon-bin > StIcon {
-  icon-size: 32px;
+.message-media-control {
+  padding: 12px;
+  color: transparentize($fg_color, 0.3);
+
+  &:hover { color: $fg_color; }
+  &:active { color: $selected_bg_color; }
+
+  &:last-child:ltr { padding-right: 18px; }
+  &:last-child:rtl { padding-left: 18px; }
 }
 
-.message-secondary-bin {
-  color: transparentize($fg_color, 0.6);
-
-  &:ltr { padding-left: 8px; }
-  &:rtl { padding-right: 8px; }
+.message:active .message-media-control {
+  color: $selected_fg_color;
 }
 
-.message-secondary-bin > StIcon {
-  icon-size: 16px;
-}
+.media-message-cover-icon {
+  icon-size:: 48px !important;
+  border: 1px solid $borders_color;
 
-.message-title {
-  font-weight: bold;
-  font-size: 1em;
-}
-.message-content {
-  padding: 8px;
-  font-size: 1em;
+  &.fallback {
+    color: $insensitive_fg_color;
+    background-color: $bg_color;
+    border-radius: 2px;
+    icon-size: 16px;
+    padding: 8px;
+  }
 }
 
 

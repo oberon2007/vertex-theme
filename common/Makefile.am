@@ -30,7 +30,9 @@ endif # ENABLE_CINNAMON
 if ENABLE_GNOME_SHELL
 	$(MKDIR_P) $(ithemedir)/gnome-shell
 
-	cd $(srcdir)/gnome-shell/$(GNOME_VERSION) && cp -R \
+	$(SASSC) $(srcdir)/gnome-shell/$(GNOME_SHELL_VERSION)/sass/gnome-shell.scss $(srcdir)/gnome-shell/$(GNOME_SHELL_VERSION)/gnome-shell.css;
+
+	cd $(srcdir)/gnome-shell/$(GNOME_SHELL_VERSION) && cp -RL \
 		assets \
 		gnome-shell.css \
 		$(ithemedir)/gnome-shell
@@ -53,7 +55,11 @@ endif # ENABLE_GTK2
 
 
 if ENABLE_GTK3
-	cp -RH $(srcdir)/gtk-3.0/$(GNOME_VERSION) $(ithemedir)/gtk-3.0
+	$(SASSC) $(srcdir)/gtk-3.0/$(GTK3_VERSION)/sass/gtk.scss $(srcdir)/gtk-3.0/$(GTK3_VERSION)/gtk.css;
+	$(SASSC) $(srcdir)/gtk-3.0/$(GTK3_VERSION)/sass/gtk-light.scss $(srcdir)/gtk-3.0/$(GTK3_VERSION)/gtk-light.css;
+	$(SASSC) $(srcdir)/gtk-3.0/$(GTK3_VERSION)/sass/gtk-dark.scss $(srcdir)/gtk-3.0/$(GTK3_VERSION)/gtk-dark.css;
+
+	cp -RH $(srcdir)/gtk-3.0/$(GTK3_VERSION) $(ithemedir)/gtk-3.0
 
 	cd $(ithemedir)/gtk-3.0 && rm -rf \
 		gtk-light.css \
@@ -62,13 +68,10 @@ if ENABLE_GTK3
 		README.md \
 		sass \
 		*.sh \
-		*.txt \
-		gulpfile.js \
-		.nvmrc \
-		package.json
+		*.txt
 
 if ENABLE_DARK
-	cp -RH $(srcdir)/gtk-3.0/$(GNOME_VERSION) $(ithemedarkdir)/gtk-3.0
+	cp -RH $(srcdir)/gtk-3.0/$(GTK3_VERSION) $(ithemedarkdir)/gtk-3.0
 
 	cd $(ithemedarkdir)/gtk-3.0 && rm -rf \
 		gtk.css \
@@ -77,10 +80,7 @@ if ENABLE_DARK
 		README.md \
 		sass \
 		*.sh \
-		*.txt \
-		gulpfile.js \
-		.nvmrc \
-		package.json
+		*.txt
 
 	cd $(ithemedarkdir)/gtk-3.0 && \
 		mv gtk-dark.css gtk.css && \
@@ -89,7 +89,7 @@ if ENABLE_DARK
 endif # ENABLE_DARK
 
 if ENABLE_LIGHT
-	cp -RH $(srcdir)/gtk-3.0/$(GNOME_VERSION) $(ithemelightdir)/gtk-3.0
+	cp -RH $(srcdir)/gtk-3.0/$(GTK3_VERSION) $(ithemelightdir)/gtk-3.0
 
 	cd $(ithemelightdir)/gtk-3.0 && rm -rf \
 		thumbnail-dark.png \
@@ -97,10 +97,7 @@ if ENABLE_LIGHT
 		README.md \
 		sass \
 		*.sh \
-		*.txt \
-		gulpfile.js \
-		.nvmrc \
-		package.json
+		*.txt
 
 	cd $(ithemelightdir)/gtk-3.0 && \
 		mv gtk-light.css gtk.css
@@ -160,6 +157,22 @@ endif # ENABLE_LIGHT
 endif # ENABLE_METACITY
 
 
+if ENABLE_PLANK
+
+	$(MKDIR_P) $(ithemedir)
+	cp -R $(srcdir)/plank $(ithemedir)
+
+if ENABLE_DARK
+	$(MKDIR_P) $(ithemedarkdir)
+	cp -R $(srcdir)/plank $(ithemedarkdir)
+endif # ENABLE_DARKER
+
+if ENABLE_LIGHT
+	$(MKDIR_P) $(ithemelightdir)
+	cp -R $(srcdir)/plank $(ithemelightdir)
+endif # ENABLE_DARK
+endif # ENABLE_PLANK
+
 
 if ENABLE_UNITY
 	cp -R $(srcdir)/unity $(ithemedir)
@@ -202,15 +215,17 @@ endif # ENABLE_LIGHT
 
 
 
-EXTRA_DIST = $(srcdir)/cinnamon \
-	     $(srcdir)/gnome-shell \
-	     $(srcdir)/gtk-2.0 \
-	     $(srcdir)/gtk-2.0-dark \
-	     $(srcdir)/gtk-3.0 \
-	     $(srcdir)/metacity-1 \
-	     $(srcdir)/unity \
-	     $(srcdir)/xfwm4 \
-	     $(srcdir)/xfwm4-light \
-	     $(srcdir)/index.theme \
-	     $(srcdir)/index.theme-light \
-	     $(srcdir)/index.theme-dark
+EXTRA_DIST = \
+	cinnamon \
+	gnome-shell \
+	gtk-2.0 \
+	gtk-2.0-dark \
+	gtk-3.0 \
+	metacity-1 \
+	unity \
+	plank \
+	xfwm4 \
+	xfwm4-light \
+	index.theme \
+	index.theme-light \
+	index.theme-dark

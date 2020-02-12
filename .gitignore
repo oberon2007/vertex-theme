@@ -1,4 +1,3 @@
-node_modules
 Makefile
 Makefile.in
 aclocal.m4
@@ -9,4 +8,5 @@ config.*
 configure
 install-sh
 missing
-
+common/gnome-shell/**/gnome-shell.css
+common/gtk-3.0/**/*.css

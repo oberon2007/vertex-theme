@@ -56,6 +56,12 @@ terminal-window {
   &, &:not(:only-child) { background-color: $base_color; }
 }
 
+// Pathbar for nautilus >=3.30
+.nautilus-window .path-bar > box > button {
+  margin: 0 4px;
+  padding: 2px;
+}
+
 button.nautilus-circular-button.image-button {
   @extend button.circular;
 }
@@ -492,6 +498,11 @@ WnckPager {
   &:focus:selected { background-color: red; color: green; background-image: none;}
 }
 
+NaTrayApplet {
+  -NaTrayApplet-icon-padding: 0;
+  -NaTrayApplet-icon-size: 16;
+}
+
 ClockBox {
   color: nth($_fg_color, 2);
   text-shadow: 0 -1px nth($_light_text_icon_shadow, 2);
@@ -524,8 +535,8 @@ ClockBox {
 .nautilus-window .floating-bar {
   padding: 0;
   color: $selected_fg_color;
-  background-image: linear-gradient(to bottom, 
-                                    #656668, 
+  background-image: linear-gradient(to bottom,
+                                    #656668,
                                     #4B4C4E);
   background-color: #656668;
   border-color: transparentize(black, 0.3);

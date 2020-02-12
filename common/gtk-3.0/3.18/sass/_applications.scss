@@ -560,6 +560,11 @@ WnckPager {
   &:focus:selected { background-color: red; color: green; background-image: none;}
 }
 
+NaTrayApplet {
+  -NaTrayApplet-icon-padding: 0;
+  -NaTrayApplet-icon-size: 16;
+}
+
 ClockBox {
   color: nth($_fg_color, 2);
   text-shadow: 0 -1px nth($_light_text_icon_shadow, 2);

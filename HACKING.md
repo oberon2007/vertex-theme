@@ -1,18 +1,14 @@
-This theme uses libsass/gulp to process the sass/*.scss. Never edit any of the .css files manually.
+#### Editing the CSS based themes in the `common` directory
 
-#### Editing the theme
+* Edit the cinnamon.css file.
 
-* Install `nvm` (https://github.com/creationix/nvm)
+* Edit the sass/*.scss files (gnome-shell or gtk-3.0).
 
-* Run `nvm i` from the directory containing `.nvmrc`
+* Run `sassc sass/gnome-shell.scss gnome-shell.css` to generate the .css file for gnome-shell.
 
-* Run `npm i` from the directory containing `gulpfile.js`. It's the same directory as the one that contains `.nvmrc` in this case.
+* Run `sassc sass/gtk.scss gtk.css`, `sassc sass/gtk-dark.scss gtk-dark.css` and `sassc sass/gtk-light.scss gtk-light.css` to generate .css files for gtk-3.0.
 
-* Install `gulp` with `npm i -g gulp`
-
-* Edit the sass/*.scss files
-
-* Regenerate the .css files by executing `gulp` from the directory that contains `gulpfile.js`
+Note: `make install` will generate gnome-shell and gtk-3.0 .css files using sassc. The last two steps are not needed.
 
 --
 
