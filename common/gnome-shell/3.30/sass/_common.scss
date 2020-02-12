@@ -1121,63 +1121,37 @@ StScrollBar {
 }
 
 .pager-button {
-  color: transparent;
+  color: $fg_color;
   background-color: transparent;
   width: 32px;
   border-radius: 2px;
 
-  &:focus, &:hover, &:active { background-color: transparent; }
+  &:focus { background-color: transparent; }
+
+  &:hover { background-color: transparentize($fg_color, 0.85); }
+
+  &:active { background-color: darken($bg_color, 5%); }
 }
 
 //arrow back
 .calendar-change-month-back {
   background-image: url("assets/misc/calendar-arrow-left.svg");
-
-  &:focus {background-image: url("assets/misc/calendar-arrow-left-active.svg"); }
-
-  &:hover { @include button(hover-transparent); }
-
-  &:active {
-    @include button(active-transparent);
-    background-image: url("assets/misc/calendar-arrow-left-active.svg"); }
+  color: transparent;
 
   &:rtl {
     background-image: url("assets/misc/calendar-arrow-right.svg");
-
-    &:focus {background-image: url("assets/misc/calendar-arrow-right-active.svg"); }
-
-    &:hover { @include button(hover-transparent); }
-
-    &:active {
-      @include button(active-transparent);
-      background-image: url("assets/misc/calendar-arrow-right-active.svg");
-    }
+    color: transparent;
   }
 }
 
 //arrow forward
 .calendar-change-month-forward {
   background-image: url("assets/misc/calendar-arrow-right.svg");
-
-  &:focus {background-image: url("assets/misc/calendar-arrow-right-active.svg"); }
-
-  &:hover { @include button(hover-transparent); }
-
-  &:active {
-    @include button(active-transparent);
-    background-image: url("assets/misc/calendar-arrow-right-active.svg");
-  }
+  color: transparent;
 
   &:rtl {
     background-image: url("assets/misc/calendar-arrow-left.svg");
-
-    &:focus {background-image: url("assets/misc/calendar-arrow-left-active.svg"); }
-
-    &:hover { @include button(hover-transparent); }
-
-    &:active {
-      @include button(active-transparent);
-      background-image: url("assets/misc/calendar-arrow-left-active.svg"); }
+    color: transparent;
   }
 }
 
