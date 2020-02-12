@@ -115,7 +115,6 @@ StScrollBar {
   StButton#vhandle, StButton#hhandle {
     border-radius: 8px;
     background-color: $_scrollbar_bg_color;
-    border: 0px solid;
     margin: 0px;
 
     &:hover { background-color: lighten($_scrollbar_bg_color, 10%); }
@@ -470,7 +469,7 @@ StScrollBar {
     color: $fg_color;
   }
 
-  &-descritption:rtl {
+  &-description:rtl {
     text-align: right;
   }
 
@@ -893,6 +892,7 @@ StScrollBar {
 #panel {
   background-color: transparentize(black, 1);
   font-weight: bold;
+  font-feature-settings: "tnum";
   height: 2.1em;
   min-height: 23px;
 	border-image: url('assets/panel/panel.svg') 1 1 1 1;
@@ -918,7 +918,7 @@ StScrollBar {
       -panel-corner-border-color: black;
     }
 
-    &.lock-screen, &.login-screen, &unlock-screen {
+    &.lock-screen, &.login-screen, &.unlock-screen {
       -panel-corner-radius: 0;
       -panel-corner-background-color: transparent;
       -panel-corner-border-color: transparent;
@@ -973,6 +973,8 @@ StScrollBar {
   }
 
   .screencast-indicator { color: red; }
+
+  .remote-access-indicator { color: red; }
 }
 
   // a little unstructured mess:
@@ -1006,6 +1008,7 @@ StScrollBar {
   }
 
   .system-menu-action {
+    -st-icon-style: symbolic;
     padding: 13px;
     color: $fg_color;
     border-radius: 32px; /* wish we could do 50% */
@@ -1133,24 +1136,33 @@ StScrollBar {
 //arrow back
 .calendar-change-month-back {
   background-image: url("assets/misc/calendar-arrow-left.svg");
+  color: transparent;
 
-  &:rtl { background-image: url("assets/misc/calendar-arrow-right.svg"); }
+  &:rtl {
+    background-image: url("assets/misc/calendar-arrow-right.svg");
+    color: transparent;
+  }
 }
 
 //arrow forward
 .calendar-change-month-forward {
   background-image: url("assets/misc/calendar-arrow-right.svg");
+  color: transparent;
 
-  &:rtl { background-image: url("assets/misc/calendar-arrow-left.svg"); }
+  &:rtl {
+    background-image: url("assets/misc/calendar-arrow-left.svg");
+    color: transparent;
+  }
 }
 
 .calendar-day-base {
   font-size: 80%;
   text-align: center;
-  width: 25px; height: 25px;
+  width: 2.6em; height: 2.6em;
   padding: 0.1em;
   margin: 2px;
-  border-radius: 12.5px;
+  border-radius: 1.6em;
+  font-feature-settings: "tnum";
 
   &:hover, &:focus { background-color: transparentize(black, 0.8); }
 
@@ -1222,15 +1234,20 @@ StScrollBar {
 //
 .message-list {
   width: 31.5em;
-}
 
-.message-list-sections {
-  spacing: 1.5em;
-}
+  &-list-sections {
+    spacing: 1em;
+  }
 
-.message-list-section,
-.message-list-section-list {
-  spacing: 0.7em;
+  &-list-section,
+  &-list-section-list {
+    spacing: 0.4em;
+  }
+
+  &-placeholder {
+    StIcon { width: 0; height: 0; }
+    StLabel { color: $insensitive_fg_color; }
+  }
 }
 
 .message {
@@ -1239,41 +1256,57 @@ StScrollBar {
   padding: 4px;
 
   &:hover, &:focus { border-image: url("assets/misc/message-hover.svg") 4 4 4 4; }
+
+  &-icon-bin {
+    padding: 0.68em 0.2em 0.68em 0.68em;
+
+    &:rtl { padding: 0.68em 0.68em 0.68em 0.2em; }
+
+    StIcon {
+      color: inherit;
+      icon-size: 1.33em;
+      -st-icon-style: symbolic;
+    }
+
+    > .fallback-window-icon {
+      width: 1.33em;
+      height: 1.33em;
+    }
+  }
+
+  &-secondary-bin {
+    padding: 0 0.82em;
+  }
+
+  &-secondary-bin > .event-time {
+    color: transparentize($fg_color, 0.6);
+    font-size: 0.9em;
+
+    /* HACK: the label should be baseline-aligned with a 1em label,
+             fake this with some bottom padding */
+    padding-bottom: 0.05em;
+  }
+
+  &:active .message-secondary-bin,
+  &:active .message-secondary-bin > .event-time {
+    color: transparentize($selected_fg_color, 0.6);
 }
 
-.message-icon-bin {
-  padding: 8px 0px 8px 8px;
+  &-secondary-bin > StIcon { icon-size: 1.33em; }
 
-  &:rtl { padding: 8px 8px 8px 0px; }
-}
+  &-title {
+    color: inherit;
+    font-weight: bold;
+  }
 
-.message-icon-bin > StIcon {
-  icon-size: 32px;
-  -st-icon-style: symbolic;
-}
-
-.message-secondary-bin {
-  color: transparentize($fg_color, 0.6);
-
-  &:ltr { padding-left: 8px; }
-  &:rtl { padding-right: 8px; }
-}
-
-.message-secondary-bin > StIcon {
-  icon-size: 16px;
-}
-
-.message-title {
-  font-weight: bold;
-  font-size: 1em;
-}
-.message-content {
-  padding: 8px;
-  font-size: 1em;
+  &-content {
+    color: inherit;
+    padding: 8px;
+  }
 }
 
 .message-media-control {
-  padding: 6px;
+  padding: 12px;
   color: transparentize($fg_color, 0.3);
 
   &:hover { color: $fg_color; }
@@ -1283,8 +1316,12 @@ StScrollBar {
   &:last-child:rtl { padding-left: 18px; }
 }
 
+.message:active .message-media-control {
+  color: $selected_fg_color;
+}
+
 .media-message-cover-icon {
-  icon-size: 32px;
+  icon-size: 48px !important;
   border: 1px solid $borders_color;
 
   &.fallback {
@@ -2144,20 +2181,19 @@ StScrollBar {
   .login-dialog-user-list-view { -st-vfade-offset: 1em; }
   .login-dialog-user-list {
     spacing: 12px;
-    padding: .2em;
     width: 23em;
     &:expanded .login-dialog-user-list-item:selected { background-color: $selected_bg_color; color: $selected_fg_color; }
     &:expanded .login-dialog-user-list-item:logged-in { border-right: 2px solid $selected_bg_color; }
   }
   .login-dialog-user-list-item {
     border-radius: 5px;
-    padding: .2em;
+    padding: 6px;
     color: darken($osd_fg_color,30%);
-    &:ltr { padding-right: 1em; }
-    &:rtl { padding-left: 1em; }
+    &:ltr .user-widget { padding-right: 1em; }
+    &:rtl .user-widget { padding-left: 1em; }
     .login-dialog-timed-login-indicator {
       height: 2px;
-      margin: 2px 0 0 0;
+      margin-top: 6px;
       background-color: $osd_fg_color;
     }
     &:focus .login-dialog-timed-login-indicator { background-color: $selected_fg_color; }
@@ -2172,8 +2208,8 @@ StScrollBar {
     padding-left: 15px;
   }
     .user-widget-label {
-      &:ltr { padding-left: 18px; }
-      &:rtl { padding-right: 18px; }
+      &:ltr { padding-left: 14px; }
+      &:rtl { padding-right: 14px; }
     }
 
   .login-dialog-prompt-layout {
@@ -2225,6 +2261,7 @@ StScrollBar {
 .screen-shield-clock-time {
   font-size: 72pt;
   text-shadow: 0px 2px 2px rgba(0,0,0,0.4);
+  font-feature-settings: "tnum";
 }
 
 .screen-shield-clock-date { font-size: 28pt; }
