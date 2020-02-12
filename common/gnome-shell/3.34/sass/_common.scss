@@ -1855,6 +1855,10 @@ StScrollBar {
     border-image: none;
     background-image: none;
   }
+
+  &:drop .overview-icon {
+    background-color: $selected_bg_color;
+  }
 }
 
 .app-well-app-running-dot { //running apps indicator
